@@ -10,6 +10,11 @@ class User(db.Model, UserMixin):
   email = db.Column(db.String(255), nullable = False, unique = True)
   hashed_password = db.Column(db.String(255), nullable = False)
 
+  #reference for data going out
+  friend = db.relationship("Friend", back_populates="user")
+  answer = db.relationship("Answer", back_populates="user")
+  post = db.relationship("Content", back_populates="user")
+
 
   @property
   def password(self):
