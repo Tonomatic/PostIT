@@ -5,7 +5,7 @@ class Friend(db.Model):
   __tablename__ = 'friends'
 
   id = db.Column(db.Integer, primary_key = True)
-  userId = db.Column(db.String(40), db.ForeignKey("users.id"), nullable = False)
+  userId = db.Column(db.Integer, db.ForeignKey("users.id"), nullable = False)
   username = db.Column(db.Text(), nullable = False)
 
   #references for data going out
