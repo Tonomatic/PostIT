@@ -13,7 +13,7 @@ class User(db.Model, UserMixin):
   #reference for data going out
   friend = db.relationship("Friend", back_populates="user")
   answer = db.relationship("Answer", back_populates="user")
-  post = db.relationship("Content", back_populates="user")
+  post = db.relationship("Post", back_populates="user")
 
 
   @property

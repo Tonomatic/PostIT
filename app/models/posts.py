@@ -1,7 +1,7 @@
 from .db import db
 from .postAnswers import posts_answers
 
-class Content(db.Model):
+class Post(db.Model):
   __tablename__ = 'posts'
 
   id = db.Column(db.Integer, primary_key = True)

@@ -1,7 +1,7 @@
 from .db import db
 
 posts_answers = db.Table(
-    "usersServers",
+    "postsAnswers",
     db.Column(
         "postId",
         db.Integer,
