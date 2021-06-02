@@ -1,0 +1,27 @@
+.First_nav {
+    background-color: #5B5192;
+    width: 300px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+nav > div {
+    border: 1px solid white;
+    padding: 50px;
+    text-align: center;
+}
+
+.tags {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+/*probably won't edit it yet */
+/* #logout_button {
+    width: 100px;
+    height: 30px;
+} */
