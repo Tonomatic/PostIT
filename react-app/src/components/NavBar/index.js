@@ -28,18 +28,21 @@ const NavBar = () => {
       </div>
       <div>
         <NavLink to="/login" exact={true} className="tags" activeClassName="active">
-          Login
+          MyPosts
           </NavLink>
       </div>
       <div>
         <NavLink to="/sign-up" exact={true} className="tags" activeClassName="active">
-          Sign Up
+          Friends
           </NavLink>
       </div>
       <div>
         <NavLink to="/users" exact={true} className="tags" activeClassName="active">
-          Users
+          Answers
           </NavLink>
+      </div>
+      <div id="AddButton">
+        +
       </div>
       <div>
         <LogoutButton />

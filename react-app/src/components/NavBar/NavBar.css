@@ -25,3 +25,9 @@ nav > div {
     width: 100px;
     height: 30px;
 } */
+#AddButton {
+    padding: 30px;
+    font-size: 60px;
+    color: white;
+    font-weight:900;
+}
