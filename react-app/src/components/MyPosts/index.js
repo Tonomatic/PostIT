@@ -8,12 +8,12 @@ import './MyPosts.css'
 const MyPosts = () => {
     const [post, setPost] = useState("")
     const user = useSelector(state => state.session.user)
-    const posts = useSelector(state => state.post.posts)
+    const posts = useSelector(state => state.post)
     const dispatch = useDispatch();
     console.log(posts)
     useEffect(() => {
-        console.log("WE GOT INTO THE USEeFFECT", posts)
         dispatch(myPosts((user.id)))
+        console.log("WE GOT INTO THE USEeFFECT", posts)
     }, [user])
 
 
