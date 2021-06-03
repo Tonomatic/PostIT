@@ -47,6 +47,17 @@ const SignUpForm = () => {
       setErrors(data.errors);
     }
   }
+  const demoLogin2 = async (e) => {
+    const email = 'demo@demo.com';
+    const password = 'password';
+    e.preventDefault();
+    setErrors([]);
+    const data = await dispatch(login(email, password));
+    if (data.errors) {
+      setErrors(data.errors);
+    }
+  }
+
 
   if (user) {
     return <Redirect to="/" />;
@@ -94,8 +105,11 @@ const SignUpForm = () => {
               required={true}
             ></input>
           </div>
-          <button type="submit">Sign Up</button>
-          <button type="submit" id="demo__login" onClick={demoLogin}>Demo Login</button>
+          <button type="submit" id="button1">Sign Up</button>
+          <div>
+            <button type="submit" id="button2" onClick={demoLogin}>Demo Login</button>
+            <button type="submit" id="button2" onClick={demoLogin2}>Demo2 Login</button>
+          </div>
           <NavLink to="/login" id="login__link">Already have an account?</NavLink>
         </form>
       </div>
