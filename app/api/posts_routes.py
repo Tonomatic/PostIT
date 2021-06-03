@@ -4,7 +4,7 @@ from app.models import User, Post
 
 posts_routes = Blueprint('posts', __name__)
 
-@posts_routes
+@posts_routes.route('/<int:id>')
 def posts(id):
     posts = Post.query.filter(Post.userId == id).all()
     return {"posts": [post.to_dict() for post in posts]}
