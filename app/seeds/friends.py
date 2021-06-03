@@ -1,4 +1,4 @@
-from app.models import db, Friend, User
+from app.models import db, User
 from faker import Faker
 import random
 faker = Faker()
@@ -6,21 +6,17 @@ faker = Faker()
 # Adds a demo user, you can add other users here if you want
 def seed_friends():
 
-    friend1 = Friend(userId=1, username= 'James')
-    friend2 = Friend(userId=1, username= 'Zach')
-    friend3 = Friend(userId=1, username= 'Tony')
-    friend4 = Friend(userId=2, username= 'Tony')
-    friend5 = Friend(userId=2, username= 'Steve')
+    friend1 = User.query.get(1)
+    friend2 = User.query.get(2)
+    friend3 = User.query.get(3)
+    friend4 = User.query.get(4)
 
-    for i in range(3, 13):
-        another = Friend(userId=i, username= faker.name())
-        db.session.add(another)
+    friend1.friends.append(friend2)
+    friend4.friends.append(friend3)
 
     db.session.add(friend1)
-    db.session.add(friend2)
-    db.session.add(friend3)
     db.session.add(friend4)
-    db.session.add(friend5)
+
 
     db.session.commit()
 

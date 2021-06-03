@@ -14,8 +14,8 @@ seed_commands = AppGroup('seed')
 def seed():
     seed_users()
     seed_answer()
-    seed_friends()
     seed_posts()
+    seed_friends()
     seed_postans()
     # Add other seed functions here
 
@@ -24,7 +24,7 @@ def seed():
 def undo():
     undo_users()
     undo_answer()
-    undo_friends()
     undo_posts()
+    undo_friends()
     undo_postans()
     # Add other undo functions here

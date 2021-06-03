@@ -1,6 +1,7 @@
 from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
+from .friends import friends
 
 class User(db.Model, UserMixin):
   __tablename__ = 'users'
@@ -11,9 +12,18 @@ class User(db.Model, UserMixin):
   hashed_password = db.Column(db.String(255), nullable = False)
 
   #reference for data going out
-  friend = db.relationship("Friend", back_populates="user")
   answer = db.relationship("Answer", back_populates="user")
   post = db.relationship("Post", back_populates="user")
+
+  #many to many relationship
+  friends = db.relationship(
+    "User",
+    secondary=friends,
+    primaryjoin=(friends.c.userId == id),
+    secondaryjoin=(friends.c.friendId == id),
+    backref=db.backref("follows", lazy="dynamic"),
+    lazy="dynamic"
+  )
 
 
   @property
