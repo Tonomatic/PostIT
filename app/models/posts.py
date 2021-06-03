@@ -6,7 +6,7 @@ class Post(db.Model):
 
   id = db.Column(db.Integer, primary_key = True)
   content = db.Column(db.Text(), nullable = False)
-  userId = db.Column(db.String(40), db.ForeignKey("users.id"), nullable = False)
+  userId = db.Column(db.Integer, db.ForeignKey("users.id"), nullable = False)
 
   #references for data going out
   user = db.relationship("User", back_populates="post")
@@ -25,4 +25,5 @@ class Post(db.Model):
           "id": self.id,
           "content": self.content,
           "userId": self.userId,
+          "answers": [a.to_dict() for a in self.answers]
       }

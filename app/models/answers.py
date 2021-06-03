@@ -6,7 +6,7 @@ class Answer(db.Model):
 
   id = db.Column(db.Integer, primary_key = True)
   content = db.Column(db.String(40), nullable = False)
-  userId = db.Column(db.String(40), db.ForeignKey("users.id"), nullable = False)
+  userId = db.Column(db.Integer, db.ForeignKey("users.id"), nullable = False)
 
   #data coming in
   user = db.relationship("User", back_populates="answer")
