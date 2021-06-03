@@ -1,15 +1,17 @@
 import React from 'react';
-import { NavLink, Redirect } from 'react-router-dom';
+import { NavLink, Redirect, useParams } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import "./NavBar.css"
 
 const redirecting = () => {
+
   return (
     <Redirect to="/" />
   )
 }
 
 const NavBar = () => {
+  const { userId } = useParams();
   return (
     <nav className="First_nav">
       <div>

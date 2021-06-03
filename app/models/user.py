@@ -21,7 +21,7 @@ class User(db.Model, UserMixin):
     secondary=friends,
     primaryjoin=(friends.c.userId == id),
     secondaryjoin=(friends.c.friendId == id),
-    backref=db.backref("follows", lazy="dynamic"),
+    # backref=db.backref("friend", lazy="dynamic"),
     lazy="dynamic"
   )
 

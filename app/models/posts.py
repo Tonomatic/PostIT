@@ -25,4 +25,5 @@ class Post(db.Model):
           "id": self.id,
           "content": self.content,
           "userId": self.userId,
+          "answers": [a.to_dict() for a in self.answers]
       }
