@@ -37,6 +37,16 @@ const LoginForm = () => {
       setErrors(data.errors);
     }
   }
+  const demoLogin2 = async (e) => {
+    const email = 'demo@demo.com';
+    const password = 'password';
+    e.preventDefault();
+    setErrors([]);
+    const data = await dispatch(login(email, password));
+    if (data.errors) {
+      setErrors(data.errors);
+    }
+  }
 
   if (user) {
     return <Redirect to="/" />;
@@ -47,7 +57,7 @@ const LoginForm = () => {
       {/* <h1>Hello</h1> */}
       <div id="login__container">
         <h1 id="login__title">Welcome back!</h1>
-        <h3 id="login__title--subtitle">We're so excited to see you again!</h3>
+        <h3 id="login__title--subtitle">Go ask your questions!</h3>
         <form onSubmit={onLogin} id="login__form">
           <div>
             {errors.map((error) => (
@@ -73,7 +83,10 @@ const LoginForm = () => {
             />
           </div>
           <button type="submit" id="button1">Login</button>
-          <button type="submit" id="button2" onClick={demoLogin}>Demo Login</button>
+          <div id="demos">
+            <button type="submit" id="button2" onClick={demoLogin}>Demo Login</button>
+            <button type="submit" id="button2" onClick={demoLogin2}>Demo2 Login</button>
+          </div>
           <div id="register__link">
             <p>Need an account?</p>
             <NavLink to="/sign-up">Register</NavLink>
