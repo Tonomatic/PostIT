@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector, useDispatch } from "react-redux";
 import { NavLink, Redirect, useParams } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import "./NavBar.css"
@@ -11,7 +12,13 @@ const redirecting = () => {
 }
 
 const NavBar = () => {
+  const user = useSelector(state => state.session.user);
   const { userId } = useParams();
+
+  if(!user) {
+    return <Redirect to="/login" />;
+  }
+
   return (
     <nav className="First_nav">
       <div>
