@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify
 from flask_login import login_required
 from app.models import User, Post
 from app.forms import PostForm
-
+from flask_login import current_user
 posts_routes = Blueprint('posts', __name__)
 
 @posts_routes.route('/<int:id>')

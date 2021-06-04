@@ -7,38 +7,27 @@ import './MyPosts.css'
 
 const MyPosts = () => {
     const [post, setPost] = useState("")
+    const [lestate, setLestate] = useState(false)
     const user = useSelector(state => state.session.user)
-    const posts = useSelector(state => state.post)
+    const posts = useSelector(state => state.post.posts)
     const dispatch = useDispatch();
     console.log(posts)
+    // console.log(user.id)
 
     useEffect(() => {
         if (user) {
             dispatch(myPosts((user.id)))
+            setLestate(true)
         }
-    }, [dispatch, user, posts])
+    }, [dispatch, user])
 
-    // const myPosts = () => {
-    //     if (user && posts) {
-    //         return posts.posts.map((post) => {
-    //             return (
-    //                 <li>
-    //                     {post.content}
-    //                 </li>
-    //             )
-
-    //         })
-    //     }
-    // }
     return (
         <div id="myPostsTop">
-            <div>
-                MyPosts Test Route
-                {/* {posts?.map((post) => (
-                    <li>
-                        {post}
-                    </li>
-                ))} */}
+            MyPosts Test Route
+            <div id="myPosts">
+                {posts?.map((post) => (
+                    <div>{post.content}</div>
+                ))}
             </div>
         </div>
     )

@@ -24,7 +24,23 @@ export const myPosts = (userId) => async (dispatch) => {
     }
 }
 
-export const 
+// export const makePost = (id, content) => async (dispatch) => {
+//     const res = await fetch(`/api/posts/${id}`, {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify({
+//             content
+//         })
+//     });
+
+//     const data = await res.json();
+//     if(data.errors) {
+//         return data;
+//     }
+
+// }
 
 export default function reducer(state=[], action) {
     let newState;
