@@ -7,9 +7,9 @@ const getPost = (list) => ({
     payload: list
 })
 
-const makePost = (list) => ({
+const makePost = (content) => ({
     type: MAKE_POST,
-    payload: list
+    payload: content
 })
 
 export const myPosts = (userId) => async (dispatch) => {
@@ -18,7 +18,7 @@ export const myPosts = (userId) => async (dispatch) => {
             "Content-Type": "application/json"
         },
     });
-    if(res.ok) {
+    if (res.ok) {
         const data = await res.json();
         dispatch(getPost(data))
     }
@@ -36,23 +36,27 @@ export const createPost = (id, content) => async (dispatch) => {
     });
 
     const data = await res.json();
-    if(data.errors) {
+    if (data.errors) {
         return data;
     }
     dispatch(makePost(data))
-    return;
+    return {};
 
 }
 
-export default function reducer(state=[], action) {
+
+const initialState = {posts: []}
+
+export default function postReducer(state = initialState, action) {
     let newState;
     switch (action.type) {
         case GET_POST:
             newState = action.payload
             return newState;
         case MAKE_POST:
-            newState = action.payload
-            return [...state, newState]
+            const posts = [...state.posts, action.payload]
+            newState = {posts}
+            return newState
         default:
             return state;
     }

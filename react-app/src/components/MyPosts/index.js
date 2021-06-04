@@ -6,20 +6,29 @@ import './MyPosts.css'
 
 
 const MyPosts = () => {
-    const [post, setPost] = useState("")
-    const [lestate, setLestate] = useState(false)
+    const [chatInput, setChatInput] = useState("");
     const user = useSelector(state => state.session.user)
     const posts = useSelector(state => state.post.posts)
     const dispatch = useDispatch();
     console.log(posts)
     // console.log(user.id)
+    console.log(chatInput)
 
     useEffect(() => {
         if (user) {
             dispatch(myPosts((user.id)))
-            setLestate(true)
         }
     }, [dispatch])
+
+    const updateChatInput = (e) => {
+        setChatInput(e.target.value)
+    };
+
+    const postForm = async (e) => {
+        e.preventDefault()
+        await dispatch(createPost(user.id, chatInput))
+    }
+
 
     return (
         <div id="myPostsTop">
@@ -34,7 +43,16 @@ const MyPosts = () => {
                     </div>
                 ))}
             </div>
-            
+            <form onSubmit={postForm} id="postForm" method="POST">
+                <input
+                    id="formInput"
+                    placeholder="Question"
+                    value={chatInput}
+                    onChange={updateChatInput}
+                />
+                {/* <button type="submit">Post</button> */}
+            </form>
+
         </div>
     )
 }
