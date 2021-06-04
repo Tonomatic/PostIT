@@ -1,6 +1,7 @@
 // constants
 const GET_POST = "post/GET_POST";
 const MAKE_POST = "post/MAKE_POST"
+const DELETE_POST = "post/DELETE_POST"
 
 const getPost = (list) => ({
     type: GET_POST,
@@ -9,6 +10,11 @@ const getPost = (list) => ({
 
 const makePost = (content) => ({
     type: MAKE_POST,
+    payload: content
+})
+
+const deletePost = (content) => ({
+    type: DELETE_POST,
     payload: content
 })
 
@@ -41,8 +47,18 @@ export const createPost = (id, content) => async (dispatch) => {
     }
     dispatch(makePost(data))
     return {};
-
 }
+
+
+export const noMorePost = (id) => async (dispatch) => {
+    const res = await fetch(`/api/posts/${id}`, {
+        method: 'DELETE'
+    });
+    const data = await res.json();
+    dispatch(deletePost(data))
+    return
+}
+
 
 
 const initialState = {posts: []}
@@ -56,6 +72,11 @@ export default function postReducer(state = initialState, action) {
         case MAKE_POST:
             const posts = [...state.posts, action.payload]
             newState = {posts}
+            return newState
+        case DELETE_POST:
+            const post = [...state.posts]
+            newState = {post}
+            delete newState[action.payload.id];
             return newState
         default:
             return state;
