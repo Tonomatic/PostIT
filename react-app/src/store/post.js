@@ -24,23 +24,25 @@ export const myPosts = (userId) => async (dispatch) => {
     }
 }
 
-// export const makePost = (id, content) => async (dispatch) => {
-//     const res = await fetch(`/api/posts/${id}`, {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify({
-//             content
-//         })
-//     });
+export const createPost = (id, content) => async (dispatch) => {
+    const res = await fetch(`/api/posts/${id}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            content
+        })
+    });
 
-//     const data = await res.json();
-//     if(data.errors) {
-//         return data;
-//     }
+    const data = await res.json();
+    if(data.errors) {
+        return data;
+    }
+    dispatch(makePost(data))
+    return;
 
-// }
+}
 
 export default function reducer(state=[], action) {
     let newState;
@@ -48,6 +50,9 @@ export default function reducer(state=[], action) {
         case GET_POST:
             newState = action.payload
             return newState;
+        case MAKE_POST:
+            newState = action.payload
+            return [...state, newState]
         default:
             return state;
     }

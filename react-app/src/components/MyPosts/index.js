@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect, useParams, NavLink } from "react-router-dom";
-import { myPosts } from "../../store/post";
+import { myPosts, createPost } from "../../store/post";
 import './MyPosts.css'
 
 
@@ -19,16 +19,22 @@ const MyPosts = () => {
             dispatch(myPosts((user.id)))
             setLestate(true)
         }
-    }, [dispatch, user])
+    }, [dispatch])
 
     return (
         <div id="myPostsTop">
             MyPosts Test Route
             <div id="myPosts">
                 {posts?.map((post) => (
-                    <div>{post.content}</div>
+                    <div>
+                        <div>Question {post.id}:</div>
+                        <li>{post.content}</li>
+                        {/* This shows the 1st answer to the 1st question. Must change  */}
+                        {/* <div>{posts[0].answers[0].content}</div> */}
+                    </div>
                 ))}
             </div>
+            
         </div>
     )
 }
