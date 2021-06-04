@@ -1,8 +1,14 @@
 // constants
 const GET_POST = "post/GET_POST";
+const MAKE_POST = "post/MAKE_POST"
 
 const getPost = (list) => ({
     type: GET_POST,
+    payload: list
+})
+
+const makePost = (list) => ({
+    type: MAKE_POST,
     payload: list
 })
 
@@ -17,6 +23,8 @@ export const myPosts = (userId) => async (dispatch) => {
         dispatch(getPost(data))
     }
 }
+
+export const 
 
 export default function reducer(state=[], action) {
     let newState;
