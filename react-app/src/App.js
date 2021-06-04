@@ -48,6 +48,9 @@ function App() {
           <Route path="/posts" exact={true}>
             <MyPosts />
           </Route>
+          {/* <Route path="/friends" exact={true}>
+            temporary hold
+          </Route> */}
         </Switch>
 
       </main>
