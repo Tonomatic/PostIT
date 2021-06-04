@@ -1,9 +1,9 @@
 // constants
 const GET_POST = "post/GET_POST";
 
-const getPost = (data) => ({
+const getPost = (list) => ({
     type: GET_POST,
-    payload: data
+    payload: list
 })
 
 export const myPosts = (userId) => async (dispatch) => {
@@ -22,7 +22,7 @@ export default function reducer(state=[], action) {
     let newState;
     switch (action.type) {
         case GET_POST:
-            newState = action.payload.posts
+            newState = action.payload
             return newState;
         default:
             return state;

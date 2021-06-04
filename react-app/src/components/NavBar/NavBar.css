@@ -1,3 +1,7 @@
+#root {
+    display: flex;
+}
+
 .First_nav {
     background-color: #5B5192;
     width: 300px;
@@ -19,7 +23,6 @@ nav > div {
     font-size: 20px;
     font-weight: bold;
 }
-
 
 /*probably won't edit it yet */
 /* #logout_button {

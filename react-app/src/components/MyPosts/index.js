@@ -11,21 +11,34 @@ const MyPosts = () => {
     const posts = useSelector(state => state.post)
     const dispatch = useDispatch();
     console.log(posts)
+
     useEffect(() => {
-        dispatch(myPosts((user.id)))
-        console.log("WE GOT INTO THE USEeFFECT", posts)
-    }, [user])
+        if (user) {
+            dispatch(myPosts((user.id)))
+        }
+    }, [dispatch, user, posts])
 
+    // const myPosts = () => {
+    //     if (user && posts) {
+    //         return posts.posts.map((post) => {
+    //             return (
+    //                 <li>
+    //                     {post.content}
+    //                 </li>
+    //             )
 
+    //         })
+    //     }
+    // }
     return (
-        <div>
-            MyPosts Test Route
+        <div id="myPostsTop">
             <div>
-                {posts?.map((post) => (
+                MyPosts Test Route
+                {/* {posts?.map((post) => (
                     <li>
                         {post}
                     </li>
-                ))}
+                ))} */}
             </div>
         </div>
     )
