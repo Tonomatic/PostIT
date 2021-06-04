@@ -27,7 +27,7 @@ const NavBar = () => {
           </NavLink>
       </div>
       <div>
-        <NavLink to="/login" exact={true} className="tags" activeClassName="active">
+        <NavLink to="/posts" exact={true} className="tags" activeClassName="active">
           MyPosts
           </NavLink>
       </div>
