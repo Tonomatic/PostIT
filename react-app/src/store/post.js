@@ -59,8 +59,6 @@ export const noMorePost = (id) => async (dispatch) => {
     return
 }
 
-
-
 const initialState = {posts: []}
 
 export default function postReducer(state = initialState, action) {
@@ -73,6 +71,7 @@ export default function postReducer(state = initialState, action) {
             const posts = [...state.posts, action.payload]
             newState = {posts}
             return newState
+        //Is not working
         case DELETE_POST:
             const post = [...state.posts]
             newState = {post}

@@ -53,11 +53,11 @@ const MyPosts = () => {
     return (
         <div id="myPostsTop">
             MyPosts Test Route
-            <div id="myPosts">
+            <div id="myPosts" >
                 {posts?.map((post) => (
-                    <div>
-                        <div>Question {post.id}:</div>
-                        <li>{post.content}</li>
+                    <div key={post.id}>
+                        <div key={post.id}>Question {post.id}:</div>
+                        <li key={post.id}> {post.content}</li>
                         {/* This shows the 1st answer to the 1st question. Must change  */}
                         {/* <div>{posts[0].answers[0].content}</div> */}
                     </div>

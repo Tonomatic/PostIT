@@ -10,7 +10,8 @@ const Friends = () => {
 
 
     const user = useSelector(state => state.session.user)
-
+    const dispatch = useDispatch();
+    console.log(user)
     useEffect(() => {
         dispatch(myFriends(user.id))
     }, [dispatch])
