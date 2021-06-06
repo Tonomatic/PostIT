@@ -13,6 +13,11 @@ def friend(id):
    # friends = User.friends.friendId.query.filter(User.id == id).all()
    return {"friends": [user.to_dict() for user in friends]}
 
+
+'''
+ADDS A FRIEND RELATIONSHIP. RIGHT NOW, THERE'S AN ISSUE
+WHERE A FRIEND CAN ADD THE SAME USER MULTIPLE TIMES.
+'''
 @friend_routes.route('/', methods=["POST"])
 def addFriend():
    form = FriendsForm()
