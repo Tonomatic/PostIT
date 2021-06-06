@@ -24,8 +24,10 @@ export const myFriends = (userId) => async (dispatch) => {
             "Content-Type": "application/json"
         },
     });
+    console.log(res)
     if (res.ok) {
         const data = await res.json();
+        console.log(data)
         dispatch(getFriend(data))
     }
 }
@@ -63,7 +65,7 @@ export const myFriends = (userId) => async (dispatch) => {
 
 const initialState = {friends: []}
 
-export default function postReducer(state = initialState, action) {
+export default function friendReducer(state = initialState, action) {
     let newState;
     switch (action.type) {
         case GET_FRIEND:

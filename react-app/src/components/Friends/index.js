@@ -7,13 +7,14 @@ import './Friends.css'
 
 const Friends = () => {
 
-
-
     const user = useSelector(state => state.session.user)
+    const friend = useSelector(state => state.friend.friends)
     const dispatch = useDispatch();
+    console.log(friend)
     console.log(user)
     useEffect(() => {
         dispatch(myFriends(user.id))
+        console.log(friend)
     }, [dispatch])
 
 
