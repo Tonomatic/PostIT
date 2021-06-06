@@ -36,3 +36,13 @@ def deletePost(id):
     db.session.delete(post)
     db.session.commit()
     return {'message': 'Post Has Been Deleted!'}
+
+'''
+Gets all the answers from a specific post.
+Can be used to query on the 'Answers' tab
+'''
+@posts_routes.route('<int:id>')
+def answerToPost(id):
+    #if it doesn't work try using answerId
+    posts = Post.answers.query.filter(Post.userId == id).all()
+    return {"posts": [post.to_dict() for post in posts]}

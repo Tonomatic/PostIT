@@ -8,21 +8,25 @@ import './Friends.css'
 const Friends = () => {
 
     const user = useSelector(state => state.session.user)
-    const friend = useSelector(state => state.friend.friends)
+    const friends = useSelector(state => state.friend.friends)
+    const [statee, setStatee] = useState(true);
     const dispatch = useDispatch();
-    console.log(friend)
+    console.log(friends)
     console.log(user)
     useEffect(() => {
         dispatch(myFriends(user.id))
-        console.log(friend)
-    }, [dispatch])
+        console.log(friends)
+    }, [dispatch, statee])
 
 
-    return(
-        <div>
-            Friends Route
+    return (
+        <div id="myFriendsTop">
             <div>
-                {}
+                {friends?.map((friend) => (
+                    <div id="friends container">
+                        <li>{friend.username}</li>
+                    </div>
+                ))}
             </div>
         </div>
     )
