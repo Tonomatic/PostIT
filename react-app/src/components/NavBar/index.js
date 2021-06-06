@@ -32,7 +32,7 @@ const NavBar = () => {
           </NavLink>
       </div>
       <div>
-        <NavLink to="/sign-up" exact={true} className="tags" activeClassName="active">
+        <NavLink to="/friends" exact={true} className="tags" activeClassName="active">
           Friends
           </NavLink>
       </div>

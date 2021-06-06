@@ -8,6 +8,8 @@ import './MyPosts.css'
 const MyPosts = () => {
     const [chatInput, setChatInput] = useState("");
     const [placeHolder, setPlaceHolder] = useState("Question");
+    //Does not like this
+    //consider using 0
     const [post, setPost] = useState(null);
     const user = useSelector(state => state.session.user)
     const posts = useSelector(state => state.post.posts)
@@ -53,11 +55,11 @@ const MyPosts = () => {
     return (
         <div id="myPostsTop">
             MyPosts Test Route
-            <div id="myPosts">
+            <div id="myPosts" >
                 {posts?.map((post) => (
-                    <div>
+                    <div >
                         <div>Question {post.id}:</div>
-                        <li>{post.content}</li>
+                        <li key={post.id}> {post.content}</li>
                         {/* This shows the 1st answer to the 1st question. Must change  */}
                         {/* <div>{posts[0].answers[0].content}</div> */}
                     </div>

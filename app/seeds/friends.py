@@ -13,6 +13,10 @@ def seed_friends():
 
     friend1.friends.append(friend2)
     friend4.friends.append(friend3)
+    friend2.friends.append(friend1)
+    friend3.friends.append(friend4)
+    friend1.friends.append(friend3)
+    friend1.friends.append(friend4)
 
     db.session.add(friend1)
     db.session.add(friend4)

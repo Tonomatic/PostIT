@@ -9,7 +9,7 @@ import UsersList from "./components/UsersList";
 import User from "./components/User";
 import { authenticate } from "./store/session";
 import MyPosts from "./components/MyPosts/index"
-
+import Friend from "./components/Friends/index"
 function App() {
   const user = useSelector(state => state.session.user)
   const [loaded, setLoaded] = useState(false);
@@ -48,9 +48,9 @@ function App() {
           <Route path="/posts" exact={true}>
             <MyPosts />
           </Route>
-          {/* <Route path="/friends" exact={true}>
-            temporary hold
-          </Route> */}
+          <Route path="/friends" exact={true}>
+            <Friend />
+          </Route>
         </Switch>
 
       </main>
