@@ -10,11 +10,13 @@ def seed_answer():
     answer2 = Answer(content="The answer is probably 5", userId=1)
     answer3 = Answer(content="The answer is probably 10", userId=1)
     answer4 = Answer(content="The answer is of course 20", userId=2)
-
     db.session.add(answer1)
     db.session.add(answer2)
     db.session.add(answer3)
     db.session.add(answer4)
+    for i in range(5, 20):
+        another = Answer(content=faker.word(), userId=i)
+        db.session.add(another)
 
     db.session.commit()
 # Uses a raw SQL query to TRUNCATE the users table.

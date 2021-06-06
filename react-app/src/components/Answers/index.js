@@ -20,9 +20,12 @@ const MyAnswers = () => {
         <div id="myAnswersTop">
             <div id="myAnswers">
                 {posts?.map((post) => (
-                    post.answers?.map((answer) => (
-                        <li>{answer.content}</li>
-                    ))
+                    <div>
+                        <li>{post.content}</li>
+                        {post.answers?.map((answer) => (
+                            <li>{answer.content}</li>
+                        ))}
+                    </div>
                 )
                 )}
             </div>
