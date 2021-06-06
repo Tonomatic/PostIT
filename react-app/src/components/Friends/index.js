@@ -23,8 +23,8 @@ const Friends = () => {
         <div id="myFriendsTop">
             <div>
                 {friends?.map((friend) => (
-                    <div id="friends container">
-                        <li>{friend.username}</li>
+                    <div key={friend.id} id="friends container">
+                        <li key={friend.id}>{friend.username}</li>
                     </div>
                 ))}
             </div>
