@@ -1,6 +1,6 @@
 // constants
 const GET_FRIEND = "friend/GET_FRIEND";
-// const MAKE_POST = "post/MAKE_POST"
+const MAKE_FRIEND = "friend/MAKE_FRIEND"
 // const DELETE_POST = "post/DELETE_POST"
 
 const getFriend = (list) => ({
@@ -8,10 +8,10 @@ const getFriend = (list) => ({
     payload: list
 })
 
-// const makePost = (content) => ({
-//     type: MAKE_POST,
-//     payload: content
-// })
+const makeFriend = (content) => ({
+    type: MAKE_FRIEND,
+    payload: content
+})
 
 // const deletePost = (content) => ({
 //     type: DELETE_POST,
@@ -30,24 +30,24 @@ export const myFriends = (userId) => async (dispatch) => {
     }
 }
 
-// export const createPost = (id, content) => async (dispatch) => {
-//     const res = await fetch(`/api/posts/${id}`, {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify({
-//             content
-//         })
-//     });
+export const createFriend = (friendId) => async (dispatch) => {
+    const res = await fetch(`/api/friends/`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            friendId
+        })
+    });
 
-//     const data = await res.json();
-//     if (data.errors) {
-//         return data;
-//     }
-//     dispatch(makePost(data))
-//     return {};
-// }
+    const data = await res.json();
+    if (data.errors) {
+        return data;
+    }
+    dispatch(makeFriend(data))
+    return {};
+}
 
 
 // export const noMorePost = (id) => async (dispatch) => {
@@ -69,10 +69,10 @@ export default function friendReducer(state = initialState, action) {
         case GET_FRIEND:
             newState = action.payload
             return newState;
-        // case MAKE_POST:
-        //     const posts = [...state.posts, action.payload]
-        //     newState = {posts}
-        //     return newState
+        case MAKE_FRIEND:
+            const friends = [...state.friends, action.payload]
+            newState = {friends}
+            return newState
         // case DELETE_POST:
         //     const post = [...state.posts]
         //     newState = {post}

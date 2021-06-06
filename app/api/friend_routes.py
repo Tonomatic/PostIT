@@ -13,4 +13,22 @@ def friend(id):
    # friends = User.friends.friendId.query.filter(User.id == id).all()
    return {"friends": [user.to_dict() for user in friends]}
 
-# @friend_routes.route('/<')
+
+'''
+ADDS A FRIEND RELATIONSHIP. RIGHT NOW, THERE'S AN ISSUE
+WHERE A FRIEND CAN ADD THE SAME USER MULTIPLE TIMES.
+'''
+@friend_routes.route('/', methods=["POST"])
+def addFriend():
+   form = FriendsForm()
+   form['csrf_token'].data = request.cookies['csrf_token']
+   form.data['userId'] = current_user.id
+   user = User.query.get(current_user.id)
+
+   if form.validate_on_submit():
+      friend = User.query.get(form.data['friendId'])
+      user.friends.append(friend)
+      db.session.add(user)
+      db.session.commit()
+      return friend.to_dict()
+   return

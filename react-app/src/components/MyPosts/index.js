@@ -15,11 +15,6 @@ const MyPosts = () => {
     const posts = useSelector(state => state.post.posts)
     const dispatch = useDispatch();
 
-
-    console.log(posts)
-    // console.log(user.id)
-    console.log(chatInput)
-
     useEffect(() => {
         if (user) {
             dispatch(myPosts((user.id)))
@@ -48,7 +43,6 @@ const MyPosts = () => {
     const postForm = async (e) => {
         e.preventDefault()
         await dispatch(createPost(user.id, chatInput))
-        return <Redirect to="/posts" />;
     }
 
 
@@ -57,11 +51,9 @@ const MyPosts = () => {
             MyPosts Test Route
             <div id="myPosts" >
                 {posts?.map((post) => (
-                    <div id="myPostsContainer">
+                    <div key={post.id} id="myPostsContainer">
                         <div>Question {post.id}:</div>
                         <li key={post.id}> {post.content}</li>
-                        {/* This shows the 1st answer to the 1st question. Must change  */}
-                        {/* <div>{posts[0].answers[0].content}</div> */}
                     </div>
                 ))}
             </div>
