@@ -27,28 +27,28 @@ const makeAnswer = (content) => ({
 //     }
 // }
 
-// export const createFriend = (friendId) => async (dispatch) => {
-//     const res = await fetch(`/api/friends/`, {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify({
-//             friendId
-//         })
-//     });
+export const createAnswer = (content, postId, ) => async (dispatch) => {
+    const res = await fetch(`/api/answers/${postId}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            content
+        })
+    });
 
-//     const data = await res.json();
-//     if (data.errors) {
-//         return data;
-//     }
-//     dispatch(makeFriend(data))
-//     return {};
-// }
+    const data = await res.json();
+    if (data.errors) {
+        return data;
+    }
+    dispatch(makeAnswer(data))
+    return {};
+}
 
 
 
-const initialState = {asnwers: []}
+const initialState = {answers: []}
 
 export default function answerReducer(state = initialState, action) {
     let newState;
@@ -56,10 +56,10 @@ export default function answerReducer(state = initialState, action) {
         case GET_ANSWER:
             newState = action.payload
             return newState;
-        // case MAKE_FRIEND:
-        //     const friends = [...state.friends, action.payload]
-        //     newState = {friends}
-        //     return newState
+        case MAKE_ANSWER:
+            const answers = [...state.answers, action.payload]
+            newState = {answers}
+            return newState
         default:
             return state;
     }

@@ -28,15 +28,15 @@ def answers():
 def makeAnswer(id):
     form = AnswerForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    form.data['userId'] = id
-    form.data['postId'] = 1
+    form.data['userId'] = current_user.id
 
     if form.validate_on_submit():
         answer = Answer(
             content = form.data['content'],
-            userId = id,
-            postId = 1
+            userId = current_user.id,
         )
+        post = Post.query.get(id)
+        answer.posts.append(post)
         db.session.add(answer)
         db.session.commit()
         return answer.to_dict()

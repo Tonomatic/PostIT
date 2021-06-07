@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect, useParams, NavLink } from "react-router-dom";
-import { myPosts, createPost, noMorePost, myAnswers } from "../../store/post";
+import { myPosts, createPost, noMorePost } from "../../store/post";
 import './MyPosts.css'
 
 
