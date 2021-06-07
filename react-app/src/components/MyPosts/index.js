@@ -48,7 +48,7 @@ const MyPosts = () => {
 
     return (
         <div id="myPostsTop">
-            <div id="">
+            <div id="secondBlock">
                 Square
             </div>
             <div id="ddiiv">

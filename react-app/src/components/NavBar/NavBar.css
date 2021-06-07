@@ -1,43 +1,46 @@
 #root {
-    display: flex;
+  display: flex;
 }
 
 main {
-    margin-top: 140px;
+  margin-top: 120px;
+  width: 100%;
+}
+
+.logOut {
+  border-bottom: none;
 }
 
 .First_nav {
-    background-color: #5B5192;
-    width: 300px;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
+  background-color: #5b5192;
+  width: 300px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-
 .Second_nav {
-    position: fixed;
-    width: 197vh;
-    height: 120px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    border-bottom: 2px solid gray;
-
+  position: fixed;
+  width: 197vh;
+  height: 120px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-bottom: 2px solid gray;
 }
 
 nav > div {
-    border-top: 1px solid white;
-    border-bottom: 1px solid white;
-    padding: 50px;
-    text-align: center;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  padding: 50px;
+  text-align: center;
 }
 
 .tags {
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 /*probably won't edit it yet */
@@ -46,8 +49,8 @@ nav > div {
     height: 30px;
 } */
 #AddButton {
-    padding: 30px;
-    font-size: 60px;
-    color: white;
-    font-weight:900;
+  padding: 30px;
+  font-size: 60px;
+  color: white;
+  font-weight: 900;
 }
