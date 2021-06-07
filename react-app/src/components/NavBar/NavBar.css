@@ -4,7 +4,6 @@
 
 main {
     margin-top: 140px;
-
 }
 
 .First_nav {
@@ -13,13 +12,14 @@ main {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content:center;
 }
+
 
 .Second_nav {
     position: fixed;
     width: 197vh;
-    height: 125px;
+    height: 120px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
