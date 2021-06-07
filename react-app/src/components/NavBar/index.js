@@ -15,39 +15,44 @@ const NavBar = () => {
   const user = useSelector(state => state.session.user);
   const { userId } = useParams();
 
-  if(!user) {
+  if (!user) {
     return <Redirect to="/login" />;
   }
 
   return (
-    <nav className="First_nav">
-      <div>
-        <NavLink to="/" exact={true} className="tags" activeClassName="active">
-          Home
+    <div class="topDog">
+      <nav className="Second_nav">
+        <div className="logOut">
+          <LogoutButton />
+
+        </div>
+      </nav>
+      <nav className="First_nav">
+        <div>
+          <NavLink to="/" exact={true} className="tags" activeClassName="active">
+            Home
           </NavLink>
-      </div>
-      <div>
-        <NavLink to="/posts" exact={true} className="tags" activeClassName="active">
-          MyPosts
+        </div>
+        <div>
+          <NavLink to="/posts" exact={true} className="tags" activeClassName="active">
+            MyPosts
           </NavLink>
-      </div>
-      <div>
-        <NavLink to="/friends" exact={true} className="tags" activeClassName="active">
-          Friends
+        </div>
+        <div>
+          <NavLink to="/friends" exact={true} className="tags" activeClassName="active">
+            Friends
           </NavLink>
-      </div>
-      <div>
-        <NavLink to="/answers" exact={true} className="tags" activeClassName="active">
-          Answers
+        </div>
+        <div>
+          <NavLink to="/answers" exact={true} className="tags" activeClassName="active">
+            Answers
           </NavLink>
+        </div>
+        <div id="AddButton">
+          +
       </div>
-      <div id="AddButton">
-        +
-      </div>
-      <div>
-        <LogoutButton />
-      </div>
-    </nav>
+      </nav>
+    </div>
   );
 }
 
