@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect, useParams, NavLink } from "react-router-dom";
 import { myPosts, createPost, noMorePost } from "../../store/post";
-import './MyPosts.css'
+import '../MyPosts/MyPosts.css'
 
 
-const MyPosts = () => {
+const Adding = () => {
     const [chatInput, setChatInput] = useState("");
     const [placeHolder, setPlaceHolder] = useState("Question");
     //Does not like this
@@ -50,11 +50,6 @@ const MyPosts = () => {
 
     return (
         <div id="myPostsTop">
-
-            {/*this is the code for the postIt with the question*/}
-            <div id="secondBlock">
-                MyPosts
-            </div>
             <div>
                 <form onSubmit={postForm} method="POST" id="ddiiv">
                     <textarea
@@ -65,40 +60,13 @@ const MyPosts = () => {
                     />
                     <div id="containerButtonWrapper">
                     <button type="submit" id="postingButton"onClick={bringBackText}>Post</button>
-
                     </div>
 
                 </form>
             </div>
-            <div id="myPosts" >
-                {posts?.map((post) => (
-                    <div key={post.id} id="myPostsContainer">
-                        <div>Question {post.id}:</div>
-                        <li key={post.id}> {post.content}</li>
-                    </div>
-                ))}
-            </div>
-            <form onSubmit={deletePost}>
-                <h1 id="server__question">Do you want to delete this Post??</h1>
-                <input
-                    placeholder="What post would you like to delete"
-                    value={post}
-                    onChange={updatePost}
-                />
-                <button type="submit" id="delete" className="delete__buttons">Delete</button>
-            </form>
-            {/* <form onSubmit={postForm} id="postForm" method="POST">
-                <input
-                    id="formInput"
-                    placeholder={placeHolder}
-                    value={chatInput}
-                    onChange={updateChatInput}
-                />
-                <button type="submit" onClick={bringBackText}>Post</button>
-            </form> */}
 
         </div>
     )
 }
 
-export default MyPosts
+export default Adding
