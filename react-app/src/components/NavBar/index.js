@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink, Redirect, useParams } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import "./NavBar.css"
+import ReactModal from 'react-modal'
 import Adding from "../Adding/index"
 
 const redirecting = () => {
@@ -14,7 +15,15 @@ const redirecting = () => {
 
 const NavBar = () => {
   const user = useSelector(state => state.session.user);
+  const [open, setOpen] = useState(false);
   const { userId } = useParams();
+
+  const opening = () => {
+    setOpen(true)
+  }
+  const close = () => {
+    setOpen(false)
+  }
 
   if (!user) {
     return <Redirect to="/login" />;
@@ -49,9 +58,19 @@ const NavBar = () => {
             Answers
           </NavLink>
         </div>
-        <div id="AddButton">
-          <Adding />
-      </div>
+        <div id="AddContainer">
+          <ReactModal
+            isOpen={open}
+            id="editable"
+          // onRequestClose={close}
+          >
+            <Adding />
+            <button id="closeModal" onClick={close}>Close Modal</button>
+          </ReactModal>
+          <div id="addButton" onClick={opening}>
+            +
+          </div>
+        </div>
       </nav>
     </div>
   );

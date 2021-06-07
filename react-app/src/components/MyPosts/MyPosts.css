@@ -2,21 +2,11 @@
   display: inline;
 }
 
-#ddiiv {
+#ddiiv > #note {
   display: inline-block;
   background-color: rgb(106, 214, 191);
-  background-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.3) 1px,
-    transparent 1px
-  );
+  background-image: linear-gradient(to bottom,rgba(0, 0, 0, 0.3) 1px,transparent 1px);
   background-size: 1px 2rem;
-}
-
-#formContainer {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
 }
 
 #secondBlock {
@@ -38,14 +28,23 @@
   justify-content: flex-start;
   align-items: flex-start;
   background-color: transparent;
-  background-image: linear-gradient(
-    to left,
-    rgb(106, 214, 191) 1px,
-    transparent 1px
-  );
+  background-image: linear-gradient(to left,rgb(106, 214, 191) 1px,transparent 1px);
   background-size: 2px;
-
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   font-size: 1rem;
 }
+
+#postingButton {
+  width: 300px;
+  background-color:springgreen;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  cursor: pointer;
+}
+

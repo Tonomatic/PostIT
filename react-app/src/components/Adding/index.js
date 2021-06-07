@@ -50,18 +50,21 @@ const Adding = () => {
 
     return (
         <div id="myPostsTop">
-            {/*this is the code for the postIt with the question*/}
-            <div id="ddiiv">
-                <form onSubmit={postForm} method="POST">
+            <div>
+                <form onSubmit={postForm} method="POST" id="ddiiv">
                     <textarea
                         id="note"
                         placeholder={placeHolder}
                         value={chatInput}
                         onChange={updateChatInput}
                     />
-                    <button type="submit" onClick={bringBackText}>Post</button>
+                    <div id="containerButtonWrapper">
+                    <button type="submit" id="postingButton"onClick={bringBackText}>Post</button>
+                    </div>
+
                 </form>
             </div>
+
         </div>
     )
 }

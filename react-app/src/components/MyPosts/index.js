@@ -55,15 +55,19 @@ const MyPosts = () => {
             <div id="secondBlock">
                 MyPosts
             </div>
-            <div id="ddiiv">
-                <form onSubmit={postForm} method="POST">
+            <div>
+                <form onSubmit={postForm} method="POST" id="ddiiv">
                     <textarea
                         id="note"
                         placeholder={placeHolder}
                         value={chatInput}
                         onChange={updateChatInput}
                     />
-                    <button type="submit" onClick={bringBackText}>Post</button>
+                    <div id="containerButtonWrapper">
+                    <button type="submit" id="postingButton"onClick={bringBackText}>Post</button>
+
+                    </div>
+
                 </form>
             </div>
             <div id="myPosts" >
