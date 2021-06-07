@@ -2,6 +2,7 @@
 const GET_POST = "post/GET_POST";
 const MAKE_POST = "post/MAKE_POST"
 const DELETE_POST = "post/DELETE_POST"
+const GET_ANSWER = "post/GET_ANSWER"
 
 const getPost = (list) => ({
     type: GET_POST,
@@ -11,6 +12,11 @@ const getPost = (list) => ({
 const makePost = (content) => ({
     type: MAKE_POST,
     payload: content
+})
+
+const getAnswer = (list) => ({
+    type: GET_ANSWER,
+    payload: list
 })
 
 const deletePost = (content) => ({
@@ -27,6 +33,18 @@ export const myPosts = (userId) => async (dispatch) => {
     if (res.ok) {
         const data = await res.json();
         dispatch(getPost(data))
+    }
+}
+
+export const myAnswers = (userId) => async (dispatch) => {
+    const res = await fetch(`/api/posts/${userId}`, {
+        headers: {
+            "Content-Type": "application/json"
+        },
+    });
+    if (res.ok) {
+        const data = await res.json();
+        dispatch(getAnswer(data))
     }
 }
 
@@ -59,7 +77,7 @@ export const noMorePost = (id) => async (dispatch) => {
     return
 }
 
-const initialState = {posts: []}
+const initialState = {posts: [], answers: []}
 
 export default function postReducer(state = initialState, action) {
     let newState;
@@ -67,6 +85,9 @@ export default function postReducer(state = initialState, action) {
         case GET_POST:
             newState = action.payload
             return newState;
+        case GET_ANSWER:
+            newState = action.payload
+            return newState
         case MAKE_POST:
             const posts = [...state.posts, action.payload]
             newState = {posts}

@@ -3,11 +3,13 @@ import thunk from "redux-thunk";
 import session from "./session"
 import post from "./post"
 import friend from "./friend"
+import answer from "./answer"
 
 const rootReducer = combineReducers({
     session,
     post,
-    friend
+    friend,
+    answer
 });
 
 
