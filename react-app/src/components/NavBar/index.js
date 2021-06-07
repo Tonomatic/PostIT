@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { NavLink, Redirect, useParams } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import "./NavBar.css"
+import Adding from "../Adding/index"
 
 const redirecting = () => {
 
@@ -49,7 +50,7 @@ const NavBar = () => {
           </NavLink>
         </div>
         <div id="AddButton">
-          +
+          <Adding />
       </div>
       </nav>
     </div>

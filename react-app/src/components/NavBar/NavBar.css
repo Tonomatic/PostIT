@@ -27,7 +27,7 @@ main {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  border-bottom: 2px solid gray;
+  border-bottom: 1px solid gray;
 }
 
 nav > div {
