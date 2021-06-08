@@ -47,7 +47,7 @@ const MyAnswers = () => {
                 <table>
                     <tr>
                         <th>My Question</th>
-                        <th>Answer</th>
+                        <th>Answers</th>
                     </tr>
                     <tr id="myAnswers">
                         <td>
@@ -57,7 +57,6 @@ const MyAnswers = () => {
                             )}
                         </td>
                         <td>
-                            Answers:
                             {posts?.map((post, id) => (
                             <div>
                                 {post.answers?.map((answer) => (

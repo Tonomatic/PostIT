@@ -46,6 +46,7 @@ function App() {
             <User />
           </ProtectedRoute>
           <ProtectedRoute path="/" exact={true} >
+            Posts Coming Soon
           </ProtectedRoute>
           <Route path="/posts" exact={true}>
             <MyPosts />
