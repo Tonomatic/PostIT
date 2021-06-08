@@ -11,11 +11,9 @@ const MyPosts = () => {
     //Does not like this
     //consider using 0
 
-    const [post, setPost] = useState(null);
     const user = useSelector(state => state.session.user)
     const posts = useSelector(state => state.post.posts)
     const dispatch = useDispatch();
-
     useEffect(() => {
         if (user) {
             dispatch(myPosts((user.id)))
@@ -27,19 +25,13 @@ const MyPosts = () => {
         setChatInput(e.target.value)
     };
 
-
     // IS NOT WORKING YET, WILL FIX SOON
     const bringBackText = (e) => {
         setPlaceHolder("Question")
     };
 
-    const updatePost = (e) => {
-        setPost(e.target.value)
-    };
-
-    const deletePost = (e) => {
-        e.preventDefault();
-        dispatch(noMorePost(post))
+    const deletePost = (postId) => {
+        dispatch(noMorePost(postId))
         // history.push("/")
     }
 
@@ -47,7 +39,6 @@ const MyPosts = () => {
         e.preventDefault()
         await dispatch(createPost(user.id, chatInput))
     }
-
 
     return (
         <div id="myPostsTop">
@@ -81,6 +72,10 @@ const MyPosts = () => {
                 {posts?.map((post) => (
                     <div key={post.id} id="ddiiv">
                         <div id="note">
+                            <button class="circle" onClick={() => {
+                                deletePost(post.id);
+                            }}>X
+                            </button>
                             <div id="noteHeading">Question:</div>
                             <div id="noteContent" key={post.id}> {post.content}</div>
                         </div>
