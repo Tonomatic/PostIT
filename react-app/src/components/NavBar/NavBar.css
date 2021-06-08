@@ -53,9 +53,12 @@ nav > div {
   font-size: 60px;
   color: white;
   font-weight: 900;
+  height: 80px;
   cursor: pointer;
 }
-
+#AddContainer {
+  padding: 25px;
+}
 
 #editable {
   width: 500px;

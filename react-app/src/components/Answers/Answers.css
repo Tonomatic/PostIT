@@ -1,0 +1,27 @@
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th,
+td {
+  padding: 5px;
+}
+th {
+  text-align: left;
+}
+
+table {
+  width: 80%;
+  margin: 10px;
+}
+
+#tableWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+td > div {
+  padding-bottom: 10px;
+}
