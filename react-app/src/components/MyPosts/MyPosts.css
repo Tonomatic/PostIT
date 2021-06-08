@@ -1,6 +1,15 @@
 #myPostsTop {
-  display: inline;
+  height: 849px;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
+
+#postsWrapper {
+  margin: 10px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
 
 #ddiiv > #note {
   display: inline-block;
@@ -21,6 +30,7 @@
   opacity: .6;
   border-bottom: 2px solid gray;
 }
+
 
 #note {
   line-height: 2rem;
@@ -47,4 +57,3 @@
   font-size: 20px;
   cursor: pointer;
 }
-

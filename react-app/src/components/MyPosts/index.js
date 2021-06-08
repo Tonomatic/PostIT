@@ -10,6 +10,7 @@ const MyPosts = () => {
     const [placeHolder, setPlaceHolder] = useState("Question");
     //Does not like this
     //consider using 0
+
     const [post, setPost] = useState(null);
     const user = useSelector(state => state.session.user)
     const posts = useSelector(state => state.post.posts)
@@ -55,47 +56,41 @@ const MyPosts = () => {
             <div id="secondBlock">
                 MyPosts
             </div>
-            <div>
-                <form onSubmit={postForm} method="POST" id="ddiiv">
-                    <textarea
-                        id="note"
-                        placeholder={placeHolder}
-                        value={chatInput}
-                        onChange={updateChatInput}
+            <div id="postsWrapper">
+                <div>
+                    <form onSubmit={postForm} method="POST" id="ddiiv">
+                        <textarea
+                            id="note"
+                            placeholder={placeHolder}
+                            value={chatInput}
+                            onChange={updateChatInput}
+                        />
+                        <div id="containerButtonWrapper">
+                            <button type="submit" id="postingButton" onClick={bringBackText}>Post</button>
+
+                        </div>
+
+                    </form>
+                </div>
+                <div id="myPosts" >
+                    {posts?.map((post) => (
+                        <div key={post.id} id="myPostsContainer">
+                            <div>Question {post.id}:</div>
+                            <li key={post.id}> {post.content}</li>
+                        </div>
+                    ))}
+                </div>
+                <form onSubmit={deletePost}>
+                    <h1 id="server__question">Do you want to delete this Post??</h1>
+                    <input
+                        placeholder="What post would you like to delete"
+                        value={post}
+                        onChange={updatePost}
                     />
-                    <div id="containerButtonWrapper">
-                    <button type="submit" id="postingButton"onClick={bringBackText}>Post</button>
-
-                    </div>
-
+                    <button type="submit" id="delete" className="delete__buttons">Delete</button>
                 </form>
             </div>
-            <div id="myPosts" >
-                {posts?.map((post) => (
-                    <div key={post.id} id="myPostsContainer">
-                        <div>Question {post.id}:</div>
-                        <li key={post.id}> {post.content}</li>
-                    </div>
-                ))}
-            </div>
-            <form onSubmit={deletePost}>
-                <h1 id="server__question">Do you want to delete this Post??</h1>
-                <input
-                    placeholder="What post would you like to delete"
-                    value={post}
-                    onChange={updatePost}
-                />
-                <button type="submit" id="delete" className="delete__buttons">Delete</button>
-            </form>
-            {/* <form onSubmit={postForm} id="postForm" method="POST">
-                <input
-                    id="formInput"
-                    placeholder={placeHolder}
-                    value={chatInput}
-                    onChange={updateChatInput}
-                />
-                <button type="submit" onClick={bringBackText}>Post</button>
-            </form> */}
+
 
         </div>
     )
