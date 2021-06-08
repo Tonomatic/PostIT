@@ -8,6 +8,11 @@
   margin: 10px;
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+#ddiiv {
+  margin: 20px;
 }
 
 
@@ -40,13 +45,13 @@
   background-color: transparent;
   background-image: linear-gradient(to left,rgb(106, 214, 191) 1px,transparent 1px);
   background-size: 2px;
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
   font-size: 1rem;
 }
 
 #postingButton {
-  width: 300px;
+  width: 205px;
   background-color:springgreen;
   border: none;
   border-radius: 10px;
@@ -56,4 +61,13 @@
   display: inline-block;
   font-size: 20px;
   cursor: pointer;
+}
+
+#noteHeading {
+  display: flex;
+  justify-content: center;
+}
+
+#noteContent {
+  margin-left: 10px;
 }

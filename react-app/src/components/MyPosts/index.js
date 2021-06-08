@@ -55,7 +55,7 @@ const MyPosts = () => {
                 MyPosts
             </div>
             <div id="postsWrapper">
-                <div>
+                {/* <div>
                     <form onSubmit={postForm} method="POST" id="ddiiv">
                         <textarea
                             id="note"
@@ -69,16 +69,24 @@ const MyPosts = () => {
                         </div>
 
                     </form>
-                </div>
-                <div id="myPosts" >
+                </div> */}
+                {/* <div id="myPosts" >
                     {posts?.map((post) => (
                         <div key={post.id} id="myPostsContainer">
                             <div>Question {post.id}:</div>
                             <li key={post.id}> {post.content}</li>
                         </div>
                     ))}
-                </div>
-                <form onSubmit={deletePost}>
+                </div> */}
+                {posts?.map((post) => (
+                    <div key={post.id} id="ddiiv">
+                        <div id="note">
+                            <div id="noteHeading">Question:</div>
+                            <div id="noteContent" key={post.id}> {post.content}</div>
+                        </div>
+                    </div>
+                ))}
+                {/* <form onSubmit={deletePost}>
                     <h1 id="server__question">Do you want to delete this Post??</h1>
                     <input
                         placeholder="What post would you like to delete"
@@ -86,7 +94,7 @@ const MyPosts = () => {
                         onChange={updatePost}
                     />
                     <button type="submit" id="delete" className="delete__buttons">Delete</button>
-                </form>
+                </form> */}
             </div>
 
 
