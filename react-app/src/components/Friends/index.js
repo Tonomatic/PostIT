@@ -32,6 +32,9 @@ const Friends = () => {
 
     return (
         <div id="myFriendsTop">
+            <div id="secondBlock">
+                Friends
+            </div>
             <div>
                 {friends?.map((friend) => (
                     <div key={friend.id} id="friends container">

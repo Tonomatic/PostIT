@@ -40,6 +40,9 @@ const MyAnswers = () => {
 
     return (
         <div id="myAnswersTop">
+            <div id="secondBlock">
+                Answers
+            </div>
             <div id="myAnswers">
                 {posts?.map((post) => (
                     <div>

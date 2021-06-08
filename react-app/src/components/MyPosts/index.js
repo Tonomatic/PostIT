@@ -51,8 +51,6 @@ const MyPosts = () => {
 
     return (
         <div id="myPostsTop">
-
-            {/*this is the code for the postIt with the question*/}
             <div id="secondBlock">
                 MyPosts
             </div>
