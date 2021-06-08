@@ -40,7 +40,62 @@ const MyAnswers = () => {
 
     return (
         <div id="myAnswersTop">
-            <div id="myAnswers">
+            <div id="secondBlock">
+                Answers
+            </div>
+            <div id="tableWrapper">
+                <table>
+                    <tr>
+                        <th>My Question</th>
+                        <th>Answer</th>
+                    </tr>
+                    <tr id="myAnswers">
+                        <td>
+                            {posts?.map((post, id) => (
+                                <div>Question {id + 1}: {post.content}</div>
+                            )
+                            )}
+                        </td>
+                        <td>
+                            Answers:
+                            {posts?.map((post, id) => (
+                            <div>
+                                {post.answers?.map((answer) => (
+                                    <div>
+                                        <div>By User: {answer.userId}</div>
+                                        <div>Question {post.id}: {answer.content}</div>
+                                    </div>
+                                ))}
+                            </div>
+                        )
+                        )}
+                        </td>
+                        {/* <td>
+                            Friends:
+                            {posts?.map((post, id) => (
+                                <div>
+                                    {post.answers?.map((answer) => (
+                                        <div>By Friend: {answer.userId}</div>
+                                    ))}
+                                </div>
+                            )
+                            )}
+                        </td> */}
+                    </tr>
+                    {/*
+                    <tr>
+                        <td>Eve</td>
+                        <td>Jackson</td>
+                        <td>94</td>
+                    </tr>
+                    <tr>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td>80</td>
+                    </tr> */}
+                </table>
+            </div>
+            {/* <div id="myAnswers">
                 {posts?.map((post) => (
                     <div>
                         This is the Question
@@ -52,7 +107,7 @@ const MyAnswers = () => {
                     </div>
                 )
                 )}
-            </div>
+            </div> */}
             <input
                 placeHolder="Select PostId"
                 value={post}

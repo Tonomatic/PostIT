@@ -11,11 +11,9 @@ const MyPosts = () => {
     //Does not like this
     //consider using 0
 
-    const [post, setPost] = useState(null);
     const user = useSelector(state => state.session.user)
     const posts = useSelector(state => state.post.posts)
     const dispatch = useDispatch();
-
     useEffect(() => {
         if (user) {
             dispatch(myPosts((user.id)))
@@ -27,19 +25,13 @@ const MyPosts = () => {
         setChatInput(e.target.value)
     };
 
-
     // IS NOT WORKING YET, WILL FIX SOON
     const bringBackText = (e) => {
         setPlaceHolder("Question")
     };
 
-    const updatePost = (e) => {
-        setPost(e.target.value)
-    };
-
-    const deletePost = (e) => {
-        e.preventDefault();
-        dispatch(noMorePost(post))
+    const deletePost = (postId) => {
+        dispatch(noMorePost(postId))
         // history.push("/")
     }
 
@@ -48,16 +40,13 @@ const MyPosts = () => {
         await dispatch(createPost(user.id, chatInput))
     }
 
-
     return (
         <div id="myPostsTop">
-
-            {/*this is the code for the postIt with the question*/}
             <div id="secondBlock">
                 MyPosts
             </div>
             <div id="postsWrapper">
-                <div>
+                {/* <div>
                     <form onSubmit={postForm} method="POST" id="ddiiv">
                         <textarea
                             id="note"
@@ -71,16 +60,28 @@ const MyPosts = () => {
                         </div>
 
                     </form>
-                </div>
-                <div id="myPosts" >
+                </div> */}
+                {/* <div id="myPosts" >
                     {posts?.map((post) => (
                         <div key={post.id} id="myPostsContainer">
                             <div>Question {post.id}:</div>
                             <li key={post.id}> {post.content}</li>
                         </div>
                     ))}
-                </div>
-                <form onSubmit={deletePost}>
+                </div> */}
+                {posts?.map((post) => (
+                    <div key={post.id} id="ddiiv">
+                        <div id="note">
+                            <button class="circle" onClick={() => {
+                                deletePost(post.id);
+                            }}>X
+                            </button>
+                            <div id="noteHeading">Question:</div>
+                            <div id="noteContent" key={post.id}> {post.content}</div>
+                        </div>
+                    </div>
+                ))}
+                {/* <form onSubmit={deletePost}>
                     <h1 id="server__question">Do you want to delete this Post??</h1>
                     <input
                         placeholder="What post would you like to delete"
@@ -88,7 +89,7 @@ const MyPosts = () => {
                         onChange={updatePost}
                     />
                     <button type="submit" id="delete" className="delete__buttons">Delete</button>
-                </form>
+                </form> */}
             </div>
 
 

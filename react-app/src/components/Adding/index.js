@@ -49,20 +49,22 @@ const Adding = () => {
 
 
     return (
-        <div id="myPostsTop">
-            <div>
-                <form onSubmit={postForm} method="POST" id="ddiiv">
-                    <textarea
-                        id="note"
-                        placeholder={placeHolder}
-                        value={chatInput}
-                        onChange={updateChatInput}
-                    />
-                    <div id="containerButtonWrapper">
-                    <button type="submit" id="postingButton"onClick={bringBackText}>Post</button>
-                    </div>
+        <div id="addingTop">
+            <div id="postsWrapper">
+                <div>
+                    <form onSubmit={postForm} method="POST" id="ddiiv">
+                        <textarea
+                            id="note"
+                            placeholder={placeHolder}
+                            value={chatInput}
+                            onChange={updateChatInput}
+                        />
+                        <div id="containerButtonWrapper">
+                            <button type="submit" id="postingButton" onClick={bringBackText}>Post</button>
+                        </div>
 
-                </form>
+                    </form>
+                </div>
             </div>
 
         </div>
