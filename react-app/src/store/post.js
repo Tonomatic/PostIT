@@ -36,6 +36,18 @@ export const myPosts = (userId) => async (dispatch) => {
     }
 }
 
+export const friendsPosts = () => async (dispatch) => {
+    const res = await fetch(`/api/posts/home`, {
+        headers: {
+            "Content-Type": "application/json"
+        },
+    });
+    if (res.ok) {
+        const data = await res.json();
+        dispatch(getPost(data))
+    }
+}
+
 export const myAnswers = (userId) => async (dispatch) => {
     const res = await fetch(`/api/posts/${userId}`, {
         headers: {

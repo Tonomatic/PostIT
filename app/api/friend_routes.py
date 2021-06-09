@@ -5,8 +5,8 @@ from flask_login import current_user
 #import user from flask login
 friend_routes = Blueprint('friends', __name__)
 
-@friend_routes.route('/<int:id>')
-def friend(id):
+@friend_routes.route('/')
+def friend():
    ## May want ot use current_user
    # so friends = current_user.friends for easier time
    friends = current_user.friends

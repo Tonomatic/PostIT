@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, session, request
-from flask_login import login_required
-from app.models import User, Post, db
-from app.forms import PostForm
+from flask_login import login_required, current_user
+from app.models import User, Post, db, friends
+# from app.forms import PostForm
 
 posts_routes = Blueprint('posts', __name__)
 
@@ -14,6 +14,21 @@ def posts(id):
 # @posts_routes
 # def createPosts(id):
 #     form =
+
+@posts_routes.route('/home')
+def friendsPosts():
+    posts = Post.query.filter(Post.userId == current_user.id).all()
+    '''
+    GOING TO GET ALL POSTS FOR NOW, LATER TRY TO
+    MAKE IT SO IT FILTERS BY THE FRIEND RELATIONSHIP
+    BEING TRUE
+    '''
+    # posts = Post.query.all()
+    # friends = current_user.friends
+    # return {"posts": [user.to_dict()['posts'] for user in friends]}
+
+    return {"posts": [post.to_dict() for post in posts]}
+
 @posts_routes.route('<int:id>', methods=['POST'])
 def makePost(id):
     form = PostForm()
@@ -29,6 +44,8 @@ def makePost(id):
         db.session.commit()
         return post.to_dict()
     return
+
+
 
 @posts_routes.route('<int:id>', methods=['DELETE'])
 def deletePost(id):

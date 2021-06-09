@@ -1,30 +1,44 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect, useParams, NavLink } from "react-router-dom";
-import { myPosts, createPost, noMorePost } from "../../store/post";
-import './Home.css'
+import { myPosts, friendsPosts, noMorePost } from "../../store/post";
+import { myFriends, createFriend } from "../../store/friend";
 import { createAnswer } from "../../store/answer";
+import './Home.css'
 import ReactModal from 'react-modal'
 
 
 const Home = () => {
     const [chatInput, setChatInput] = useState("");
-    const [placeHolder, setPlaceHolder] = useState("Question");
-    //Does not like this
-    //consider using 0
     const [post, setPost] = useState(null);
-
+    const [postContent, setPostContent] = useState("");
     const [open, setOpen] = useState(false);
+    // const [userhuh, setUserhuh] = useState(false)
     const user = useSelector(state => state.session.user)
     const posts = useSelector(state => state.post.posts)
+    const friends = useSelector(state => state.friend.friends)
     const dispatch = useDispatch();
+    console.log(posts)
+    console.log("this is the friends of the user", friends)
+    let x;
 
+    console.log("these are posts of the friends", friends)
     useEffect(() => {
         if (user) {
-            dispatch(myPosts((user.id)))
+            dispatch(friendsPosts())
         }
     }, [dispatch])
 
+    useEffect(() => {
+        dispatch(myFriends(user.id))
+        x = friends?.map((friend) => {
+            let ide = friend.id
+            return posts.ide
+
+        })
+        console.log(x)
+        console.log(friends)
+    }, [dispatch])
 
     const answerForm = async (e) => {
         e.preventDefault()
@@ -42,9 +56,10 @@ const Home = () => {
         setChatInput(e.target.value)
     };
 
-    const answerModal = (postId) => {
+    const answerModal = (postId, content) => {
         setOpen(true)
         setPost(postId)
+        setPostContent(content)
         return (
             <div id="AddContainer">
                 <ReactModal
@@ -87,7 +102,7 @@ const Home = () => {
                             <div id="noteHeading">Question:</div>
                             <div id="noteContent" key={post.id}> {post.content}</div>
                             <button id="answerButton" onClick={() => {
-                                answerModal(post.id);
+                                answerModal(post.id, post.content);
                             }}>
                                 Answer:
                             </button>
@@ -98,9 +113,19 @@ const Home = () => {
                     <ReactModal
                         isOpen={open}
                         id="editable"
-                    // onRequestClose={close}
                     >
-                        <button id="closeModal" onClick={close}>Close Modal</button>
+                        <div id="questionAnswerContent">
+                            Question {post}: {postContent}
+                            <form onSubmit={answerForm} id="answerForm" method="POST">
+                                <input
+                                    id="formInput"
+                                    placeHolder="Answer"
+                                    value={chatInput}
+                                    onChange={updateChat}
+                                />
+                            </form>
+                            <button id="closeModal" onClick={close}>Close Modal</button>
+                        </div>
                     </ReactModal>
 
                 </div>
