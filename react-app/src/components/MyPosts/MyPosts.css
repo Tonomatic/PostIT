@@ -19,6 +19,7 @@
 
 #ddiiv > #note {
   display: inline-block;
+  border-radius: 10px;
   background-color: rgb(193, 180, 252);
   background-image: linear-gradient(
     to bottom,

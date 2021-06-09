@@ -25,3 +25,9 @@ table {
 td > div {
   padding-bottom: 10px;
 }
+
+#myAnswersTop {
+  height: 849px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
