@@ -91,7 +91,6 @@ const Home = () => {
                 Posts
             </div>
             <div id="postWrapper">
-
                 {posts?.map((post) => (
                     <div key={post.id} id="ddiiv">
                         <div id="notes">
