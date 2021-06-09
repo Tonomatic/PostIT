@@ -15,7 +15,7 @@ const Friends = () => {
     console.log(friends)
     console.log(user)
     useEffect(() => {
-        dispatch(myFriends(user.id))
+        dispatch(myFriends())
         console.log(friends)
     }, [dispatch])
 

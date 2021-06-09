@@ -46,7 +46,7 @@ const MyAnswers = () => {
             <div id="tableWrapper">
                 <table>
                     <tr>
-                        <th>My Question</th>
+                        <th>My Questions</th>
                         <th>Answers</th>
                     </tr>
                     <tr id="myAnswers">
@@ -107,7 +107,7 @@ const MyAnswers = () => {
                 )
                 )}
             </div> */}
-            <input
+            {/* <input
                 placeHolder="Select PostId"
                 value={post}
                 onChange={updatePost}
@@ -119,7 +119,7 @@ const MyAnswers = () => {
                     value={chatInput}
                     onChange={updateChat}
                 />
-            </form>
+            </form> */}
         </div>
     )
 

@@ -11,6 +11,7 @@ import { authenticate } from "./store/session";
 import MyPosts from "./components/MyPosts/index"
 import Friends from "./components/Friends/index"
 import MyAnswers from "./components/Answers/index"
+import Home from "./components/Home/index"
 
 function App() {
   const user = useSelector(state => state.session.user)
@@ -46,7 +47,7 @@ function App() {
             <User />
           </ProtectedRoute>
           <ProtectedRoute path="/" exact={true} >
-            Posts Coming Soon
+            <Home />
           </ProtectedRoute>
           <Route path="/posts" exact={true}>
             <MyPosts />

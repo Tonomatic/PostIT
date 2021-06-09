@@ -18,8 +18,8 @@ const makeFriend = (content) => ({
 //     payload: content
 // })
 
-export const myFriends = (userId) => async (dispatch) => {
-    const res = await fetch(`/api/friends/${userId}`, {
+export const myFriends = () => async (dispatch) => {
+    const res = await fetch(`/api/friends/`, {
         headers: {
             "Content-Type": "application/json"
         },

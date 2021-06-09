@@ -1,0 +1,53 @@
+#postWrapper {
+  margin-left: 10%;
+  margin-right: 10%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+#ddiiv > #notes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(193, 180, 252);
+  border-radius: 10px;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.3) 1px,
+    transparent 1px
+  );
+  background-size: 1px 2rem;
+}
+.circle2 {
+  width: 35px;
+  height: 35px;
+  align-self: flex-start;
+  background: transparent;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+}
+#notes {
+  line-height: 2rem;
+
+  background-color: transparent;
+  background-image: linear-gradient(
+    to left,
+    rgb(106, 214, 191) 1px,
+    transparent 1px
+  );
+  background-size: 2px;
+  width: 300px;
+  height: 300px;
+  font-size: 1rem;
+}
+
+#answerButton {
+    margin-top: 150px;
+    font-size: 20px;
+    font-weight: bold;
+    width: 300px;
+    height: 50px;
+    background-color: rgb(193, 180, 252);
+}
