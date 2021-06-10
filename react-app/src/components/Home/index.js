@@ -113,7 +113,7 @@ const Home = () => {
             <div id="secondBlock">
                 Posts
             </div>
-            <div id="postWrapper1">
+            <div id="postWrapper">
                 {mapping()}
                 <div id="AddContainer">
                     <ReactModal
