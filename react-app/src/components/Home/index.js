@@ -19,10 +19,9 @@ const Home = () => {
     const friends = useSelector(state => state.friend.friends)
     const dispatch = useDispatch();
     console.log(posts)
+    console.log(friends)
     console.log("this is the friends of the user", friends)
     let x;
-
-    console.log("these are posts of the friends", friends)
     useEffect(() => {
         if (user) {
             dispatch(friendsPosts())
@@ -45,6 +44,30 @@ const Home = () => {
         await dispatch(createAnswer(chatInput, post))
     }
 
+    //MUST CHANGE FILTER METHOD, NOT REALLY EFFICIENT
+    const mapping = () => {
+        let friend1 = friends.map(friend => friend.id)
+        console.log(friend1)
+        let temp = posts?.filter((post) => friend1.includes(post.userId))
+        console.log(posts)
+        console.log(temp)
+        return temp?.map((post) => (
+            <div key={post.id} id="ddiiv">
+                <div id="notess">
+                    <button class="circle2" onClick={() => {
+                        deletePost(post.id);
+                    }}>X
+                    </button>
+                    <div id="noteContent" key={post.id}>By {friends[post.userId]?.username}: {post.content}</div>
+                    <button id="answerButton" onClick={() => {
+                        answerModal(post.id, post.content);
+                    }}>
+                        Answer:
+                    </button>
+                </div>
+            </div>
+        ))
+    }
 
     const close = () => {
         setOpen(false)
@@ -91,22 +114,7 @@ const Home = () => {
                 Posts
             </div>
             <div id="postWrapper1">
-                {posts?.map((post) => (
-                    <div key={post.id} id="ddiiv">
-                        <div id="notess">
-                            <button class="circle2" onClick={() => {
-                                deletePost(post.id);
-                            }}>X
-                            </button>
-                            <div id="noteContent" key={post.id}> {post.content}</div>
-                            <button id="answerButton" onClick={() => {
-                                answerModal(post.id, post.content);
-                            }}>
-                                Answer:
-                            </button>
-                        </div>
-                    </div>
-                ))}
+                {mapping()}
                 <div id="AddContainer">
                     <ReactModal
                         isOpen={open}

@@ -17,16 +17,15 @@ def posts(id):
 
 @posts_routes.route('/home')
 def friendsPosts():
-    posts = Post.query.all()
+    # posts = Post.query.all()
     '''
     GOING TO GET ALL POSTS FOR NOW, LATER TRY TO
     MAKE IT SO IT FILTERS BY THE FRIEND RELATIONSHIP
     BEING TRUE
     '''
-    # posts = Post.query.all()
+    posts = Post.query.all()
     # friends = current_user.friends
-    # return {"posts": [user.to_dict()['posts'] for user in friends]}
-
+    # return {"posts": [user.to_dict() for user in friends]}
     return {"posts": [post.to_dict() for post in posts]}
 
 @posts_routes.route('<int:id>', methods=['POST'])
