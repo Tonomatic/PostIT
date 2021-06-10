@@ -90,15 +90,14 @@ const Home = () => {
             <div id="secondBlock">
                 Posts
             </div>
-            <div id="postWrapper">
+            <div id="postWrapper1">
                 {posts?.map((post) => (
                     <div key={post.id} id="ddiiv">
-                        <div id="notes">
+                        <div id="notess">
                             <button class="circle2" onClick={() => {
                                 deletePost(post.id);
                             }}>X
                             </button>
-                            <div id="noteHeading">Question:</div>
                             <div id="noteContent" key={post.id}> {post.content}</div>
                             <button id="answerButton" onClick={() => {
                                 answerModal(post.id, post.content);

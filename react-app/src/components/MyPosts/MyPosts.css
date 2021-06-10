@@ -32,6 +32,8 @@
 .circle {
   width: 35px;
   height: 35px;
+  border: none;
+
   background: transparent;
   position: relative;
   cursor: pointer;
