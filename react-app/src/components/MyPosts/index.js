@@ -41,6 +41,10 @@ const MyPosts = () => {
         await dispatch(createPost(user.id, chatInput))
     }
 
+    const editQuestion = () => {
+        return
+    }
+
     return (
         <div id="myPostsTop">
             <div id="secondBlock">
@@ -72,7 +76,7 @@ const MyPosts = () => {
                 </div> */}
                 {posts?.map((post) => (
                     <div key={post.id} id="ddiiv">
-                        <div id="note">
+                        <div onClick={editQuestion()} id="note">
                             <button class="circle" onClick={() => {
                                 deletePost(post.id);
                             }}>X
