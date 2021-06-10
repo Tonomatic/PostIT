@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect, useParams, NavLink } from "react-router-dom";
-import { myFriends, createFriend } from "../../store/friend";
+import { myFriends, createFriend, unfriend } from "../../store/friend";
 import './Friends.css'
 
 
@@ -9,14 +9,16 @@ const Friends = () => {
 
     const user = useSelector(state => state.session.user)
     const friends = useSelector(state => state.friend.friends)
+    const [isLoading, setIsLoading] = useState(false);
     const [friendId, setFriendId] = useState(null)
-    // const [statee, setStatee] = useState(true);
+    const [friendThis, setFriendThis] = useState(null)
     const dispatch = useDispatch();
-    console.log(friends)
-    console.log(user)
+
+    console.log("this is the friends",friends)
+    console.log("this is the user",user)
+    console.log(friendThis)
     useEffect(() => {
         dispatch(myFriends())
-        console.log(friends)
     }, [dispatch])
 
     const updateFriendInput = (e) => {
@@ -24,6 +26,17 @@ const Friends = () => {
         setFriendId(e.target.value)
     }
 
+    const updateDelete = (e) => {
+        e.preventDefault();
+        setFriendThis(e.target.value)
+    }
+
+    const deleteFriend = (e) => {
+        e.preventDefault();
+        // setIsLoading(true)
+        dispatch(unfriend(friendThis))
+        // history.push("/")
+    }
 
     const friendForm = async (e) => {
         e.preventDefault()
@@ -44,7 +57,7 @@ const Friends = () => {
                         {friends?.map((friend, id) => (
                             <table id="secondTable">
                                 <tr id="secondRow">
-                                    <td id="secondD"key={friend.id}>{id}: {friend.username}</td>
+                                    <td id="secondD" key={friend.id}>{id}: {friend.username}</td>
                                 </tr>
                             </table>
                         )
@@ -69,6 +82,15 @@ const Friends = () => {
                 />
                 <button type="submit">Add</button>
             </form>
+            <form onSubmit={deleteFriend}>
+                <input
+                    placeholder="select friend"
+                    value={friendThis}
+                    onChange={updateDelete}
+                />
+                <button type="submit">Delete</button>
+            </form>
+
         </div>
     )
 }
