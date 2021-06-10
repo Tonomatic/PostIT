@@ -12,6 +12,7 @@ main {
   border-bottom: none;
 }
 
+
 .First_nav {
   background-color: #5b5192;
   position:sticky;
@@ -41,10 +42,17 @@ nav > div {
 
 .tags {
   color: white;
+  padding: 30px;
+  padding-left: 70px;
+  padding-right: 70px;
   font-size: 20px;
+  text-decoration: none;
   font-weight: bold;
 }
 
+.First_nav > div:hover {
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.25);
+}
 /*probably won't edit it yet */
 /* #logout_button {
     width: 100px;
