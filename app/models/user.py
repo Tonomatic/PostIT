@@ -2,7 +2,7 @@ from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from .friends import friends
-from .posts import Post
+# from .posts import Post
 
 class User(db.Model, UserMixin):
   __tablename__ = 'users'
@@ -14,8 +14,8 @@ class User(db.Model, UserMixin):
 
   #reference for data going out
   answer = db.relationship("Answer", back_populates="user")
-  post = db.relationship("Post", back_populates="user")
-  
+  post = db.relationship("Post", uselist=False, back_populates="user")
+
   #many to many relationship
   friends = db.relationship(
     "User",
@@ -47,7 +47,7 @@ class User(db.Model, UserMixin):
       "id": self.id,
       "username": self.username,
       "email": self.email,
-      # "posts": {post.id: post.to_dict() for post in posts},
+      # "posts": {post.id: post.to_dict() for post in self.posts},
     }
 
   def to_dict(self):
@@ -56,6 +56,6 @@ class User(db.Model, UserMixin):
       "id": self.id,
       "username": self.username,
       "email": self.email,
-      # "posts": {post.id: post.to_dict() for post in posts},
+      # "posts": {post.id: post.to_dict() for post in self.posts},
       "friends": [f.to_dict2() for f in self.friends]
     }

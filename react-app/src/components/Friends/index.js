@@ -35,13 +35,31 @@ const Friends = () => {
             <div id="secondBlock">
                 Friends
             </div>
-            <div>
+            <div id="tableWrapper">
+                <table>
+                    <tr>
+                        <th>My Friends</th>
+                    </tr>
+                    <tr id="myFriends">
+                        {friends?.map((friend, id) => (
+                            <table id="secondTable">
+                                <tr id="secondRow">
+                                    <td id="secondD"key={friend.id}>{id}: {friend.username}</td>
+                                </tr>
+                            </table>
+                        )
+                        )}
+                    </tr>
+
+                </table>
+            </div>
+            {/* <div>
                 {friends?.map((friend) => (
                     <div key={friend.id} id="friends container">
                         <li key={friend.id}>{friend.username}</li>
                     </div>
                 ))}
-            </div>
+            </div> */}
             <form onSubmit={friendForm} id="postForm" method="POST">
                 <input
                     id="formInput"

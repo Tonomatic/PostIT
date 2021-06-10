@@ -7,18 +7,18 @@ import './MyPosts.css'
 
 const MyPosts = () => {
     const [chatInput, setChatInput] = useState("");
-    const [placeHolder, setPlaceHolder] = useState("Question");
+    const [isLoading, setIsLoading] = useState(false);
     //Does not like this
     //consider using 0
 
     const user = useSelector(state => state.session.user)
     const posts = useSelector(state => state.post.posts)
     const dispatch = useDispatch();
+
     useEffect(() => {
-        if (user) {
-            dispatch(myPosts((user.id)))
-        }
-    }, [dispatch])
+        console.log("this is loading", isLoading)
+        dispatch(myPosts((user.id)))
+    }, [dispatch, isLoading])
 
     const updateChatInput = (e) => {
         e.preventDefault();
@@ -26,11 +26,12 @@ const MyPosts = () => {
     };
 
     // IS NOT WORKING YET, WILL FIX SOON
-    const bringBackText = (e) => {
-        setPlaceHolder("Question")
-    };
+    // const bringBackText = (e) => {
+    //     setPlaceHolder("Question")
+    // };
 
     const deletePost = (postId) => {
+        setIsLoading(true)
         dispatch(noMorePost(postId))
         // history.push("/")
     }

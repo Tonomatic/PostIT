@@ -1,0 +1,14 @@
+#postForm {
+  margin: 20px;
+  /* display: flex; */
+  /* justify-content: center; */
+}
+
+td {
+  text-align: center;
+}
+
+#secondTable {
+  width: 98%;
+  margin: 15px;
+}
