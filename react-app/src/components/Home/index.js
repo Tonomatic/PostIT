@@ -51,14 +51,14 @@ const Home = () => {
         let temp = posts?.filter((post) => friend1.includes(post.userId))
         console.log(posts)
         console.log(temp)
-        return temp?.map((post) => (
+        return temp?.map((post, id) => (
             <div key={post.id} id="ddiiv">
                 <div id="notess">
                     <button class="circle2" onClick={() => {
                         deletePost(post.id);
                     }}>X
                     </button>
-                    <div id="noteContent" key={post.id}>By {friends[post.userId]?.username}: {post.content}</div>
+                    <div id="noteContent" key={post.id}>By User {post.userId}: {post.content}</div>
                     <button id="answerButton" onClick={() => {
                         answerModal(post.id, post.content);
                     }}>
