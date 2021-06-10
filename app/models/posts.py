@@ -9,7 +9,7 @@ class Post(db.Model):
   userId = db.Column(db.Integer, db.ForeignKey("users.id"), nullable = False)
 
   #references for data going out
-  user = db.relationship("User", back_populates="posts")
+  user = db.relationship("User", back_populates="post")
 
   #many to many relationship
 

@@ -7,11 +7,11 @@ faker = Faker()
 # Adds a demo user, you can add other users here if you want
 def seed_posts():
 
-    question1 = Post(content="What is 2+2", userId=1)
-    question2 = Post(content="What is 10+10", userId=1)
-    question3 = Post(content="What is the powerhouse of the cell", userId=2)
-    question4 = Post(content="What is 20 * 5", userId=1)
-    question5 = Post(content="What does a CRUD app do", userId=3)
+    question1 = Post(content="What is 2+2?", userId=1)
+    question2 = Post(content="What is 10+10?", userId=1)
+    question3 = Post(content="What is the powerhouse of the cell?", userId=2)
+    question4 = Post(content="What is 20 * 5?", userId=1)
+    question5 = Post(content="What does a CRUD app do?", userId=3)
 
 
     db.session.add(question1)
@@ -21,7 +21,7 @@ def seed_posts():
     db.session.add(question5)
 
     for i in range(5, 25):
-        another = Post(content=faker.text(), userId=i)
+        another = Post(content=faker.text() + "?", userId=i)
         db.session.add(another)
 
 

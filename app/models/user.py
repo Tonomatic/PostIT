@@ -14,7 +14,7 @@ class User(db.Model, UserMixin):
 
   #reference for data going out
   answer = db.relationship("Answer", back_populates="user")
-  posts = db.relationship("Post", uselist=False, back_populates="user")
+  post = db.relationship("Post", uselist=False, back_populates="user")
 
   #many to many relationship
   friends = db.relationship(
