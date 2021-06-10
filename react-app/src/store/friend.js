@@ -1,7 +1,7 @@
 // constants
 const GET_FRIEND = "friend/GET_FRIEND";
 const MAKE_FRIEND = "friend/MAKE_FRIEND"
-// const DELETE_POST = "post/DELETE_POST"
+const DELETE_FRIEND = "friend/DELETE_FRIEND"
 
 const getFriend = (list) => ({
     type: GET_FRIEND,
@@ -13,10 +13,10 @@ const makeFriend = (content) => ({
     payload: content
 })
 
-// const deletePost = (content) => ({
-//     type: DELETE_POST,
-//     payload: content
-// })
+const deleteFriend = (content) => ({
+    type: DELETE_FRIEND,
+    payload: content
+})
 
 export const myFriends = () => async (dispatch) => {
     const res = await fetch(`/api/friends/`, {
@@ -50,14 +50,14 @@ export const createFriend = (friendId) => async (dispatch) => {
 }
 
 
-// export const noMorePost = (id) => async (dispatch) => {
-//     const res = await fetch(`/api/posts/${id}`, {
-//         method: 'DELETE'
-//     });
-//     const data = await res.json();
-//     dispatch(deletePost(data))
-//     return
-// }
+export const unfriend = (id) => async (dispatch) => {
+    const res = await fetch(`/api/friends/${id}`, {
+        method: 'DELETE'
+    });
+    const data = await res.json();
+    dispatch(deleteFriend(data))
+    return
+}
 
 
 
@@ -73,11 +73,11 @@ export default function friendReducer(state = initialState, action) {
             const friends = [...state.friends, action.payload]
             newState = {friends}
             return newState
-        // case DELETE_POST:
-        //     const post = [...state.posts]
-        //     newState = {post}
-        //     delete newState[action.payload.id];
-        //     return newState
+        case DELETE_FRIEND:
+            const friend = [...state.friends]
+            newState = {friend}
+            delete newState[action.payload.id];
+            return newState
         default:
             return state;
     }

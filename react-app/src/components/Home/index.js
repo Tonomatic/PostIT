@@ -26,7 +26,7 @@ const Home = () => {
         if (user) {
             dispatch(friendsPosts())
         }
-    }, [dispatch])
+    }, [dispatch, open])
 
     useEffect(() => {
         dispatch(myFriends(user.id))
