@@ -19,7 +19,7 @@ const Friends = () => {
     console.log(friendThis)
     useEffect(() => {
         dispatch(myFriends())
-    }, [dispatch])
+    }, [dispatch, isLoading])
 
     const updateFriendInput = (e) => {
         e.preventDefault();
@@ -31,15 +31,16 @@ const Friends = () => {
         setFriendThis(e.target.value)
     }
 
-    const deleteFriend = (e) => {
+    const deleteFriend = async (e) => {
         e.preventDefault();
         // setIsLoading(true)
-        dispatch(unfriend(friendThis))
+        await dispatch(unfriend(friendThis))
         // history.push("/")
     }
 
     const friendForm = async (e) => {
         e.preventDefault()
+        setIsLoading(true)
         await dispatch(createFriend(friendId))
     }
 

@@ -17,10 +17,11 @@ const MyPosts = () => {
     const posts = useSelector(state => state.post.posts)
     const dispatch = useDispatch();
     console.log(postId)
-    
+
     useEffect(() => {
         console.log("this is loading", isLoading)
         dispatch(myPosts((user.id)))
+        setIsLoading(false)
     }, [dispatch, isLoading])
 
     const updateChatInput = (e) => {
@@ -37,9 +38,9 @@ const MyPosts = () => {
     //     setPlaceHolder("Question")
     // };
 
-    const deletePost = (postId) => {
+    const deletePost = async (postId) => {
         setIsLoading(true)
-        dispatch(noMorePost(postId))
+        await dispatch(noMorePost(postId))
         // history.push("/")
     }
 
@@ -53,9 +54,9 @@ const MyPosts = () => {
     //     await dispatch(createPost(user.id, chatInput))
     // }
 
-    const editQuestion = () => {
-        return
-    }
+    // const editQuestion = () => {
+    //     return
+    // }
 
     return (
         <div id="myPostsTop">
@@ -80,7 +81,7 @@ const MyPosts = () => {
                 </div> */}
                 {posts?.map((post) => (
                     <div key={post.id} id="ddiiv">
-                        <div onClick={editQuestion()} id="note">
+                        <div  id="note">
                             <button class="circle" onClick={() => {
                                 deletePost(post.id);
                             }}>X
