@@ -62,3 +62,11 @@ def answerToPost(id):
     #if it doesn't work try using answerId
     posts = Post.answers.query.filter(Post.userId == id).all()
     return {"posts": [post.to_dict() for post in posts]}
+
+@posts_routes.route('/<int:id>', methods=['PUT'])
+def editPost(id):
+    form = PostForm()
+    post = Post.query.get(id)
+    post.content = form.data['content']
+    db.session.commit()
+    return post.to_dict()
