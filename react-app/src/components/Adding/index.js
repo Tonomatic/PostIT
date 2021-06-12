@@ -11,6 +11,8 @@ const Adding = () => {
     //Does not like this
     //consider using 0
     const [post, setPost] = useState(null);
+    const [open, setOpen] = useState(false);
+
     const user = useSelector(state => state.session.user)
     const posts = useSelector(state => state.post.posts)
     const dispatch = useDispatch();
@@ -45,30 +47,33 @@ const Adding = () => {
     const postForm = async (e) => {
         e.preventDefault()
         await dispatch(createPost(user.id, chatInput))
+        setOpen(!open)
+        return (<h2>You just posted a new Question!!</h2>)
+    }
+    if (open) {
+        return <Redirect to="/posts" />;
     }
 
-
-    return (
-        <div id="addingTop">
-            <div id="postsWrapper">
-                <div>
-                    <form onSubmit={postForm} method="POST" id="ddiiv">
-                        <textarea
-                            id="note"
-                            placeholder={placeHolder}
-                            value={chatInput}
-                            onChange={updateChatInput}
-                        />
-                        <div id="containerButtonWrapper">
-                            <button type="submit" id="postingButton" onClick={bringBackText}>Post</button>
-                        </div>
-
-                    </form>
+        return (
+            <div id="addingTop">
+                <div id="postsWrapper">
+                    <div>
+                        <form onSubmit={postForm} method="POST" id="ddiiv">
+                            <textarea
+                                id="note"
+                                placeholder="Questionn"
+                                value={chatInput}
+                                onChange={updateChatInput}
+                            />
+                            <div id="containerButtonWrapper">
+                                <button type="submit" id="postingButton" onClick={bringBackText}>Post</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </div>
 
-        </div>
-    )
+            </div>
+        )
 }
 
 export default Adding

@@ -604,11 +604,8 @@ let x = {
 }
 
 x = x['results']
-// console.log(x)
 let questions = [];
-// console.log(x[0].question)
 for(let i = 0; i < 50; i++) {
     questions.push(x[i].correct_answer)
 }
 
-console.log(questions)

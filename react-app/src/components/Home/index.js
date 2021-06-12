@@ -18,9 +18,6 @@ const Home = () => {
     const posts = useSelector(state => state.post.posts)
     const friends = useSelector(state => state.friend.friends)
     const dispatch = useDispatch();
-    console.log(posts)
-    console.log(friends)
-    console.log("this is the friends of the user", friends)
     let x;
     useEffect(() => {
         if (user) {
@@ -35,8 +32,6 @@ const Home = () => {
             return posts.ide
 
         })
-        console.log(x)
-        console.log(friends)
     }, [dispatch])
 
     const answerForm = async (e) => {
@@ -47,10 +42,7 @@ const Home = () => {
     //MUST CHANGE FILTER METHOD, NOT REALLY EFFICIENT
     const mapping = () => {
         let friend1 = friends.map(friend => friend.id)
-        console.log(friend1)
         let temp = posts?.filter((post) => friend1.includes(post.userId))
-        console.log(posts)
-        console.log(temp)
         return temp?.map((post, id) => (
             <div key={post.id} id="ddiiv">
                 <div id="notess">

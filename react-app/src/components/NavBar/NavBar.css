@@ -69,10 +69,27 @@ nav > div {
   padding: 25px;
 }
 
-#editable {
-  width: 500px;
-  height: 500px;
+
+.editable {
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
+  border: none;
+  flex-direction: column;
+  top: 200px;
+  left: 250px;
+  right: 250px;
+  border-radius: 20px;
+  bottom: 100px;
+  background-color: rgb(151, 172, 229);
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: red;
 }

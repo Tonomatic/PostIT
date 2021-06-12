@@ -14,9 +14,6 @@ const Friends = () => {
     const [friendThis, setFriendThis] = useState(null)
     const dispatch = useDispatch();
 
-    console.log("this is the friends",friends)
-    console.log("this is the user",user)
-    console.log(friendThis)
     useEffect(() => {
         dispatch(myFriends())
     }, [dispatch, isLoading])

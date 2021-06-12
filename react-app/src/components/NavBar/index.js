@@ -61,11 +61,12 @@ const NavBar = () => {
         <div id="AddContainer">
           <ReactModal
             isOpen={open}
-            id="editable"
+            onRequestClose={close}
+            className="editable"
           // onRequestClose={close}
           >
+            <h2>Post a new Question!</h2>
             <Adding />
-            <button id="closeModal" onClick={close}>Close Modal</button>
           </ReactModal>
           <div id="addButton" onClick={opening}>
             +
