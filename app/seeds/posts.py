@@ -1,12 +1,13 @@
 from app.models import db, Post
 from faker import Faker
+from ..databruh import questions
 import random
 
 faker = Faker()
 
 # Adds a demo user, you can add other users here if you want
 def seed_posts():
-
+    y = questions()
     question1 = Post(content="What is 2+2?", userId=1)
     question2 = Post(content="What is 10+10?", userId=1)
     question3 = Post(content="What is the powerhouse of the cell?", userId=2)
@@ -20,8 +21,12 @@ def seed_posts():
     db.session.add(question4)
     db.session.add(question5)
 
-    for i in range(5, 25):
-        another = Post(content=faker.text() + "?", userId=i)
+    # for i in range(5, 25):
+    #     another = Post(content=faker.text() + "?", userId=i)
+    #     db.session.add(another)
+
+    for i in range(5, len(y)):
+        another = Post(content=y[i], userId=random.randrange(1, 41))
         db.session.add(another)
 
 

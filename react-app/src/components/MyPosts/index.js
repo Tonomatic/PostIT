@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Redirect, useParams, NavLink } from "react-router-dom";
 import { myPosts, createPost, noMorePost, editPost } from "../../store/post";
 import './MyPosts.css'
+import ReactModal from 'react-modal'
 
 
 const MyPosts = () => {
@@ -10,18 +11,14 @@ const MyPosts = () => {
     const [chatEdit, setChatEdit] = useState("");
     const [postId, setPostId] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
-    //Does not like this
-    //consider using 0
-
     const user = useSelector(state => state.session.user)
     const posts = useSelector(state => state.post.posts)
     const dispatch = useDispatch();
-    console.log(postId)
+    console.log("is loading", isLoading)
 
     useEffect(() => {
         console.log("this is loading", isLoading)
-        dispatch(myPosts((user.id)))
-        setIsLoading(false)
+        dispatch(myPosts(user.id))
     }, [dispatch, isLoading])
 
     const updateChatInput = (e) => {
@@ -37,16 +34,41 @@ const MyPosts = () => {
     // const bringBackText = (e) => {
     //     setPlaceHolder("Question")
     // };
+    // const answerModal = (postId, content) => {
+    //     // setOpen(true)
+    //     // setPost(postId)
+    //     // setPostContent(content)
+    //     return (
+    //         <div id="AddContainer">
+    //             <ReactModal
+    //                 isOpen={open}
+    //                 id="editable"
+
+    //             >
+    //                 <textarea>
+    //                     {/* <input
+    //                         value={}
+    //                     /> */}
+    //                 </textarea>
+    //                 <button id="closeModal" onClick={close}>Close Modal</button>
+    //             </ReactModal>
+    //         </div>
+
+    //     )
+    // }
+
 
     const deletePost = async (postId) => {
-        setIsLoading(true)
         await dispatch(noMorePost(postId))
-        // history.push("/")
+        setIsLoading(!isLoading);
+        return
     }
 
     const editing = async (e) => {
         e.preventDefault()
         await dispatch(editPost(postId, chatInput))
+        // setIsLoading(!isLoading);
+        // return
     }
 
     // const postForm = async (e) => {
@@ -81,9 +103,10 @@ const MyPosts = () => {
                 </div> */}
                 {posts?.map((post) => (
                     <div key={post.id} id="ddiiv">
-                        <div  id="note">
+                        <div id="note">
                             <button class="circle" onClick={() => {
                                 deletePost(post.id);
+
                             }}>X
                             </button>
                             <div id="noteHeading">Question:</div>

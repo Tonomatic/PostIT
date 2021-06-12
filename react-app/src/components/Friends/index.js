@@ -33,9 +33,9 @@ const Friends = () => {
 
     const deleteFriend = async (e) => {
         e.preventDefault();
-        // setIsLoading(true)
         await dispatch(unfriend(friendThis))
-        // history.push("/")
+        setIsLoading(!isLoading)
+        return
     }
 
     const friendForm = async (e) => {
