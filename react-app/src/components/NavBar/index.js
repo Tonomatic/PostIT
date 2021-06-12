@@ -34,7 +34,6 @@ const NavBar = () => {
       <nav className="Second_nav">
         <div className="logOut">
           <LogoutButton />
-
         </div>
       </nav>
       <nav className="First_nav">
