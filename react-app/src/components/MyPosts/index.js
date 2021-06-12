@@ -1,49 +1,84 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect, useParams, NavLink } from "react-router-dom";
-import { myPosts, createPost, noMorePost } from "../../store/post";
+import { myPosts, createPost, noMorePost, editPost } from "../../store/post";
 import './MyPosts.css'
+import ReactModal from 'react-modal'
 
 
 const MyPosts = () => {
     const [chatInput, setChatInput] = useState("");
+    const [chatEdit, setChatEdit] = useState("");
+    const [postId, setPostId] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
-    //Does not like this
-    //consider using 0
-
     const user = useSelector(state => state.session.user)
     const posts = useSelector(state => state.post.posts)
     const dispatch = useDispatch();
+    console.log("is loading", isLoading)
 
     useEffect(() => {
         console.log("this is loading", isLoading)
-        dispatch(myPosts((user.id)))
+        dispatch(myPosts(user.id))
     }, [dispatch, isLoading])
 
     const updateChatInput = (e) => {
         e.preventDefault();
         setChatInput(e.target.value)
     };
+    const updatePost = (e) => {
+        e.preventDefault();
+        setPostId(e.target.value)
+    };
 
     // IS NOT WORKING YET, WILL FIX SOON
     // const bringBackText = (e) => {
     //     setPlaceHolder("Question")
     // };
+    // const answerModal = (postId, content) => {
+    //     // setOpen(true)
+    //     // setPost(postId)
+    //     // setPostContent(content)
+    //     return (
+    //         <div id="AddContainer">
+    //             <ReactModal
+    //                 isOpen={open}
+    //                 id="editable"
 
-    const deletePost = (postId) => {
-        setIsLoading(true)
-        dispatch(noMorePost(postId))
-        // history.push("/")
-    }
+    //             >
+    //                 <textarea>
+    //                     {/* <input
+    //                         value={}
+    //                     /> */}
+    //                 </textarea>
+    //                 <button id="closeModal" onClick={close}>Close Modal</button>
+    //             </ReactModal>
+    //         </div>
 
-    const postForm = async (e) => {
-        e.preventDefault()
-        await dispatch(createPost(user.id, chatInput))
-    }
+    //     )
+    // }
 
-    const editQuestion = () => {
+
+    const deletePost = async (postId) => {
+        await dispatch(noMorePost(postId))
+        setIsLoading(!isLoading);
         return
     }
+
+    const editing = async (e) => {
+        e.preventDefault()
+        await dispatch(editPost(postId, chatInput))
+        // setIsLoading(!isLoading);
+        // return
+    }
+
+    // const postForm = async (e) => {
+    //     e.preventDefault()
+    //     await dispatch(createPost(user.id, chatInput))
+    // }
+
+    // const editQuestion = () => {
+    //     return
+    // }
 
     return (
         <div id="myPostsTop">
@@ -66,19 +101,12 @@ const MyPosts = () => {
 
                     </form>
                 </div> */}
-                {/* <div id="myPosts" >
-                    {posts?.map((post) => (
-                        <div key={post.id} id="myPostsContainer">
-                            <div>Question {post.id}:</div>
-                            <li key={post.id}> {post.content}</li>
-                        </div>
-                    ))}
-                </div> */}
                 {posts?.map((post) => (
                     <div key={post.id} id="ddiiv">
-                        <div onClick={editQuestion()} id="note">
+                        <div id="note">
                             <button class="circle" onClick={() => {
                                 deletePost(post.id);
+
                             }}>X
                             </button>
                             <div id="noteHeading">Question:</div>
@@ -86,18 +114,26 @@ const MyPosts = () => {
                         </div>
                     </div>
                 ))}
-                {/* <form onSubmit={deletePost}>
-                    <h1 id="server__question">Do you want to delete this Post??</h1>
-                    <input
-                        placeholder="What post would you like to delete"
-                        value={post}
-                        onChange={updatePost}
-                    />
-                    <button type="submit" id="delete" className="delete__buttons">Delete</button>
-                </form> */}
             </div>
-
-
+            <div>
+                <input
+                    placeholder="select post id"
+                    value={postId}
+                    onChange={updatePost}
+                >
+                </input>
+                <form onSubmit={editing} method="POST" id="ddiiv">
+                    <textarea
+                        id="note"
+                        placeholder="Edit Post"
+                        value={chatInput}
+                        onChange={updateChatInput}
+                    />
+                    <div id="containerButtonWrapper">
+                        <button type="submit" id="postingButton">Post</button>
+                    </div>
+                </form>
+            </div>
         </div>
     )
 }

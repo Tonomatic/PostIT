@@ -35,17 +35,10 @@ def addFriend():
 
 @friend_routes.route('/<int:id>', methods=['DELETE'])
 def deleteFriend(id):
-
    user = User.query.get(1)
    friend = User.query.get(id)
-   print("132",user)
-   print("132",friend)
-   print("nowthisisinteresting", user.friends)
-   db.session.delete(user.friends[friend])
+   user.friends.remove(friend)
+   # db.session.delete(user.friends[friend])
 
-   # friend = User.query.get(1)
-   # friend2 = User.query.get(id)
-   # friend1 = friend.friends.append(friend2)
-   # db.session.delete(friend1)
    db.session.commit()
    return {'message': 'Friend has been unfollow'}

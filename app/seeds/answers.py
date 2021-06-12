@@ -1,11 +1,13 @@
 from app.models import db, Answer
 from faker import Faker
 import random
+from ..databruh import answers
+
 faker = Faker()
 
 # Adds a demo user, you can add other users here if you want
 def seed_answer():
-
+    y = answers()
     answer1 = Answer(content="The answer is 4", userId=1)
     answer2 = Answer(content="The answer is probably 5", userId=1)
     answer3 = Answer(content="The answer is probably 10", userId=1)
@@ -14,8 +16,11 @@ def seed_answer():
     db.session.add(answer2)
     db.session.add(answer3)
     db.session.add(answer4)
-    for i in range(5, 20):
-        another = Answer(content=faker.word(), userId=i)
+    # for i in range(5, 20):
+    #     another = Answer(content=faker.word(), userId=i)
+    #     db.session.add(another)
+    for i in range(5, len(y)):
+        another = Answer(content=y[i], userId=random.randrange(1, 30))
         db.session.add(another)
 
     db.session.commit()
