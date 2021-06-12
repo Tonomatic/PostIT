@@ -31,11 +31,11 @@ const NavBar = () => {
 
   return (
     <div class="topDog">
-      <nav className="Second_nav">
+      {/* <nav className="Second_nav">
         <div className="logOut">
           <LogoutButton />
         </div>
-      </nav>
+      </nav> */}
       <nav className="First_nav">
         <div>
           <NavLink to="/" exact={true} className="tags" activeClassName="active">

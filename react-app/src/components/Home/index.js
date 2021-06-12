@@ -39,6 +39,12 @@ const Home = () => {
         await dispatch(createAnswer(chatInput, post))
     }
 
+    const opening = () => {
+        setOpen(true)
+    }
+    const close = () => {
+        setOpen(false)
+    }
     //MUST CHANGE FILTER METHOD, NOT REALLY EFFICIENT
     const mapping = () => {
         let friend1 = friends.map(friend => friend.id)
@@ -61,10 +67,6 @@ const Home = () => {
         ))
     }
 
-    const close = () => {
-        setOpen(false)
-    }
-
 
     const updateChat = (e) => {
         e.preventDefault();
@@ -75,26 +77,7 @@ const Home = () => {
         setOpen(true)
         setPost(postId)
         setPostContent(content)
-        return (
-            <div id="AddContainer">
-                <ReactModal
-                    isOpen={open}
-                    id="editable"
-
-                >
-                    <form onSubmit={answerForm} id="answerForm" method="POST">
-                        <input
-                            id="formInput"
-                            placeHolder="Answer"
-                            value={chatInput}
-                            onChange={updateChat}
-                        />
-                    </form>
-                    <button id="closeModal" onClick={close}>Close Modal</button>
-                </ReactModal>
-            </div>
-
-        )
+        return 
     }
 
     const deletePost = (postId) => {
@@ -110,7 +93,8 @@ const Home = () => {
                 <div id="AddContainer">
                     <ReactModal
                         isOpen={open}
-                        id="editable"
+                        className="editable"
+                        onRequestClose={close}
                     >
                         <div id="questionAnswerContent">
                             Question {post}: {postContent}
