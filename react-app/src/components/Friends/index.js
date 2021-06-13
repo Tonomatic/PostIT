@@ -70,23 +70,7 @@ const Friends = () => {
                 Friends
             </div>
             <div id="tableWrapper">
-                <div>
-                    <div>
-                        {friends?.map((friend, id) => (
-                            <table id="secondTable">
-                                <tr id="secondRow">
-
-                                    <td id="secondD" onClick={true} key={friend.id}>{id}: {friend.username}</td>
-                                    <button onClick={() => {
-                                        deleteFriend(friend.id);
-
-                                    }}>x</button>
-                                </tr>
-                            </table>
-                        )
-                        )}
-                    </div>
-                    <div>
+                <div id="othercontent">
                         <ReactModal
                             isOpen={open}
                             onRequestClose={close}
@@ -100,7 +84,19 @@ const Friends = () => {
                         >
                             Find More Friends
                         </button>
-                    </div>
+                        {friends?.map((friend, id) => (
+                            <div id="secondTable">
+                                <div id="secondRow">
+                                    <div id="secondD" onClick={true} key={friend.id}>{friend.username}</div>
+                                    <button id="deleteFriend" onClick={() => {
+                                        deleteFriend(friend.id);
+
+                                    }}>x</button>
+                                </div>
+                            </div>
+                        )
+                        )}
+
                 </div>
             </div>
             {/* <div>

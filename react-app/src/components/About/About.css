@@ -16,6 +16,10 @@ a {
 
   font-family: Sofia;
 }
+
+#linkss {
+    font-size:40px;
+}
 .space img {
   width: 10rem;
 
@@ -25,6 +29,9 @@ a {
 
   margin: 40px;
 }
+/* .topAbout {
+    background-color: blue;
+} */
 
 /* footer start */
 
@@ -34,7 +41,8 @@ footer {
   position: fixed;
   height: 120px;
   top: 0;
-  width: calc(100% - 300px);
+  right:0;
+  width: calc(95% - 300px);
 }
 
 /* social media icons */
@@ -53,9 +61,9 @@ footer {
 
   border-radius: 100%;
 
-  width: 2rem;
+  width: 4rem;
 
-  height: 2rem;
+  height: 4rem;
 
   display: flex;
 

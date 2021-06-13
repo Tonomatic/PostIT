@@ -31,12 +31,10 @@ const NavBar = () => {
 
   return (
     <div class="topDog">
-      {/* <nav className="Second_nav">
-        <div className="logOut">
-          <LogoutButton />
-        </div>
-      </nav> */}
+
       <nav className="First_nav">
+        {/* <div className="Home" onClick={() => <NavLink to="/friends" exact={true} activeClassName="active"/>}>
+        </div> */}
         <div>
           <NavLink to="/" exact={true} className="tags" activeClassName="active">
             Home
@@ -52,11 +50,11 @@ const NavBar = () => {
             Friends
           </NavLink>
         </div>
-        {/* <div>
+        <div>
           <NavLink to="/answers" exact={true} className="tags" activeClassName="active">
             Answers
           </NavLink>
-        </div> */}
+        </div>
         <div id="AddContainer">
           <ReactModal
             isOpen={open}
