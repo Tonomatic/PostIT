@@ -13,6 +13,12 @@ td {
   margin: 15px;
 }
 
+#myFriendsTop {
+  height: 849px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
 #secondD {
   cursor: pointer;
 }
