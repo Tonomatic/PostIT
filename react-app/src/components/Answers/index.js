@@ -12,9 +12,6 @@ const MyAnswers = () => {
 
     const [chatInput, setChatInput] = useState("");
     const [post, setPost] = useState(null);
-    console.log(post)
-    console.log(posts)
-    console.log(answers)
     const dispatch = useDispatch()
 
     useEffect(() => {

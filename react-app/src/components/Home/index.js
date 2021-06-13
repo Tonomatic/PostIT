@@ -18,9 +18,6 @@ const Home = () => {
     const posts = useSelector(state => state.post.posts)
     const friends = useSelector(state => state.friend.friends)
     const dispatch = useDispatch();
-    console.log(posts)
-    console.log(friends)
-    console.log("this is the friends of the user", friends)
     let x;
     useEffect(() => {
         if (user) {
@@ -35,8 +32,6 @@ const Home = () => {
             return posts.ide
 
         })
-        console.log(x)
-        console.log(friends)
     }, [dispatch])
 
     const answerForm = async (e) => {
@@ -44,13 +39,13 @@ const Home = () => {
         await dispatch(createAnswer(chatInput, post))
     }
 
+    const close = () => {
+        setOpen(false)
+    }
     //MUST CHANGE FILTER METHOD, NOT REALLY EFFICIENT
     const mapping = () => {
         let friend1 = friends.map(friend => friend.id)
-        console.log(friend1)
         let temp = posts?.filter((post) => friend1.includes(post.userId))
-        console.log(posts)
-        console.log(temp)
         return temp?.map((post, id) => (
             <div key={post.id} id="ddiiv">
                 <div id="notess">
@@ -69,10 +64,6 @@ const Home = () => {
         ))
     }
 
-    const close = () => {
-        setOpen(false)
-    }
-
 
     const updateChat = (e) => {
         e.preventDefault();
@@ -83,26 +74,7 @@ const Home = () => {
         setOpen(true)
         setPost(postId)
         setPostContent(content)
-        return (
-            <div id="AddContainer">
-                <ReactModal
-                    isOpen={open}
-                    id="editable"
-
-                >
-                    <form onSubmit={answerForm} id="answerForm" method="POST">
-                        <input
-                            id="formInput"
-                            placeHolder="Answer"
-                            value={chatInput}
-                            onChange={updateChat}
-                        />
-                    </form>
-                    <button id="closeModal" onClick={close}>Close Modal</button>
-                </ReactModal>
-            </div>
-
-        )
+        return
     }
 
     const deletePost = (postId) => {
@@ -118,7 +90,8 @@ const Home = () => {
                 <div id="AddContainer">
                     <ReactModal
                         isOpen={open}
-                        id="editable"
+                        className="editable"
+                        onRequestClose={close}
                     >
                         <div id="questionAnswerContent">
                             Question {post}: {postContent}

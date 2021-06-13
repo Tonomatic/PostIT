@@ -12,6 +12,7 @@ import MyPosts from "./components/MyPosts/index"
 import Friends from "./components/Friends/index"
 import MyAnswers from "./components/Answers/index"
 import Home from "./components/Home/index"
+import About from "./components/About/index"
 
 function App() {
   const user = useSelector(state => state.session.user)
@@ -32,6 +33,7 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
+      <About />
       <main>
         <Switch>
           <Route path="/login" exact={true}>
@@ -40,6 +42,9 @@ function App() {
           <Route path="/sign-up" exact={true}>
             <SignUpForm />
           </Route>
+          {/* <Route path="/about" exact={true}>
+            <About />
+          </Route> */}
           <ProtectedRoute path="/users" exact={true} >
             <UsersList />
           </ProtectedRoute>

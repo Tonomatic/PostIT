@@ -14,10 +14,8 @@ const MyPosts = () => {
     const user = useSelector(state => state.session.user)
     const posts = useSelector(state => state.post.posts)
     const dispatch = useDispatch();
-    console.log("is loading", isLoading)
 
     useEffect(() => {
-        console.log("this is loading", isLoading)
         dispatch(myPosts(user.id))
     }, [dispatch, isLoading])
 

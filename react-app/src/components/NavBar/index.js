@@ -31,12 +31,11 @@ const NavBar = () => {
 
   return (
     <div class="topDog">
-      <nav className="Second_nav">
+      {/* <nav className="Second_nav">
         <div className="logOut">
           <LogoutButton />
-
         </div>
-      </nav>
+      </nav> */}
       <nav className="First_nav">
         <div>
           <NavLink to="/" exact={true} className="tags" activeClassName="active">
@@ -61,11 +60,12 @@ const NavBar = () => {
         <div id="AddContainer">
           <ReactModal
             isOpen={open}
-            id="editable"
+            onRequestClose={close}
+            className="editable"
           // onRequestClose={close}
           >
+            <h2>Post a new Question!</h2>
             <Adding />
-            <button id="closeModal" onClick={close}>Close Modal</button>
           </ReactModal>
           <div id="addButton" onClick={opening}>
             +

@@ -3,7 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { Redirect, useParams, NavLink } from "react-router-dom";
 import { myFriends, createFriend, unfriend } from "../../store/friend";
 import './Friends.css'
-
+import ReactModal from 'react-modal'
+import UsersList from '../UsersList'
 
 const Friends = () => {
 
@@ -11,12 +12,21 @@ const Friends = () => {
     const friends = useSelector(state => state.friend.friends)
     const [isLoading, setIsLoading] = useState(false);
     const [friendId, setFriendId] = useState(null)
+    const [open, setOpen] = useState(false);
     const [friendThis, setFriendThis] = useState(null)
     const dispatch = useDispatch();
 
-    console.log("this is the friends",friends)
-    console.log("this is the user",user)
-    console.log(friendThis)
+
+    const opening = () => {
+        setOpen(true)
+        return
+    }
+    const close = () => {
+        setOpen(false)
+        return
+
+    }
+
     useEffect(() => {
         dispatch(myFriends())
     }, [dispatch, isLoading])
@@ -31,10 +41,12 @@ const Friends = () => {
         setFriendThis(e.target.value)
     }
 
-    const deleteFriend = async (e) => {
-        e.preventDefault();
-        await dispatch(unfriend(friendThis))
+    const deleteFriend = async (friendId) => {
+        // e.preventDefault();
+        await dispatch(unfriend(friendId))
         setIsLoading(!isLoading)
+        // await dispatch(unfriend(e))
+        // setIsLoading(!isLoading)
         return
     }
 
@@ -44,28 +56,51 @@ const Friends = () => {
         await dispatch(createFriend(friendId))
     }
 
+    // const modall = () => {
+    //     return (<ReactModal
+    //         isOpen={true}
+    //         onRequestClose={false}
+    //     >
+    //         Hello
+    //     </ReactModal>)
+    // }
     return (
         <div id="myFriendsTop">
             <div id="secondBlock">
                 Friends
             </div>
             <div id="tableWrapper">
-                <table>
-                    <tr>
-                        <th>My Friends</th>
-                    </tr>
-                    <tr id="myFriends">
+                <div>
+                    <div>
                         {friends?.map((friend, id) => (
                             <table id="secondTable">
                                 <tr id="secondRow">
-                                    <td id="secondD" key={friend.id}>{id}: {friend.username}</td>
+                                    <td id="secondD" onClick={true} key={friend.id}>{id}: {friend.username}</td>
+                                    <button onClick={() => {
+                                        deleteFriend(friend.id);
+
+                                    }}>x</button>
                                 </tr>
                             </table>
                         )
                         )}
-                    </tr>
-
-                </table>
+                    </div>
+                    <div>
+                        <ReactModal
+                            isOpen={open}
+                            onRequestClose={close}
+                            className="editable2"
+                        >
+                            <UsersList />
+                        </ReactModal>
+                        <button
+                            onClick={opening}
+                            className="findingFriends"
+                        >
+                            Find More Friends
+                        </button>
+                    </div>
+                </div>
             </div>
             {/* <div>
                 {friends?.map((friend) => (
@@ -83,14 +118,14 @@ const Friends = () => {
                 />
                 <button type="submit">Add</button>
             </form>
-            <form onSubmit={deleteFriend}>
+            {/* <form onSubmit={deleteFriend}>
                 <input
                     placeholder="select friend"
                     value={friendThis}
                     onChange={updateDelete}
                 />
                 <button type="submit">Delete</button>
-            </form>
+            </form> */}
 
         </div>
     )

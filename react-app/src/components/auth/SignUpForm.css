@@ -90,7 +90,7 @@
      height: 40px;
      margin: 0;
      border-radius: 3px;
-     background-color: #7289DA;
+     background-color: #5B5192;
      color: white;
      transition: background-color .17s ;
      transition-timing-function: ease;
@@ -103,8 +103,8 @@
      height: 40px;
      margin: 22px;
      border-radius: 3px;
-     background-color: #7289DA;
-     color: white;
+     background-color: #5B5192;
+     color: white; 
      transition: background-color .17s ;
      transition-timing-function: ease;
      border-style: none;
