@@ -75,6 +75,7 @@ const Friends = () => {
                         {friends?.map((friend, id) => (
                             <table id="secondTable">
                                 <tr id="secondRow">
+
                                     <td id="secondD" onClick={true} key={friend.id}>{id}: {friend.username}</td>
                                     <button onClick={() => {
                                         deleteFriend(friend.id);
@@ -109,7 +110,7 @@ const Friends = () => {
                     </div>
                 ))}
             </div> */}
-            <form onSubmit={friendForm} id="postForm" method="POST">
+            {/* <form onSubmit={friendForm} id="postForm" method="POST">
                 <input
                     id="formInput"
                     placeholder="Pick a friend by his ID"
@@ -117,7 +118,7 @@ const Friends = () => {
                     onChange={updateFriendInput}
                 />
                 <button type="submit">Add</button>
-            </form>
+            </form> */}
             {/* <form onSubmit={deleteFriend}>
                 <input
                     placeholder="select friend"

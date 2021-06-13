@@ -35,7 +35,7 @@ def addFriend():
 
 @friend_routes.route('/<int:id>', methods=['DELETE'])
 def deleteFriend(id):
-   user = User.query.get(1)
+   user = User.query.get(current_user.id)
    friend = User.query.get(id)
    user.friends.remove(friend)
    # db.session.delete(user.friends[friend])

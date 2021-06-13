@@ -93,7 +93,7 @@ const Home = () => {
                         className="editable"
                         onRequestClose={close}
                     >
-                        <div id="questionAnswerContent">
+                        {/* <div id="questionAnswerContent">
                             Question {post}: {postContent}
                             <form onSubmit={answerForm} id="answerForm" method="POST">
                                 <input
@@ -104,7 +104,25 @@ const Home = () => {
                                 />
                             </form>
                             <button id="closeModal" onClick={close}>Close Modal</button>
+                        </div> */}
+                        <div id="postWrapper">
+                            <div id="ddiiv">
+                                <div id="notess">
+                                    <div></div>
+                                    <div id="noteContent">Question {post}: {postContent}</div>
+                                    <div></div>
+                                </div>
+                            </div>
                         </div>
+                        <form onSubmit={answerForm} id="answerForm" method="POST">
+                            <input
+                                id="formInput"
+                                placeHolder="Answer"
+                                value={chatInput}
+                                onChange={updateChat}
+                            />
+                        </form>
+                        <button id="closeModal" onClick={close}>Close</button>
                     </ReactModal>
 
                 </div>
