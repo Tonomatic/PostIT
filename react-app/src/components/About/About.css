@@ -29,10 +29,10 @@ a {
 /* footer start */
 
 footer {
-  background-color: #231b55;
+  background-color: #ffffff;
   text-align: center;
   position: fixed;
-  height: 103px;
+  height: 120px;
   top: 0;
   width: calc(100% - 300px);
 }
@@ -41,7 +41,7 @@ footer {
 
 .sm-handle {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   height: 100%;
 }
