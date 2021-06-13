@@ -99,8 +99,23 @@ nav > div {
   flex-direction: column;
   align-items:center;
   padding:10px;
+  border: 1px solid black;
 }
 
 .individualNames {
   padding:10px;
+  border-bottom: 1px solid black;
+}
+
+.buttonFriend {
+  margin-left: 10px;
+  background-color: #231b55; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  cursor: pointer;
 }

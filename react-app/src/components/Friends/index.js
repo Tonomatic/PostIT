@@ -109,7 +109,7 @@ const Friends = () => {
                     </div>
                 ))}
             </div> */}
-            <form onSubmit={friendForm} id="postForm" method="POST">
+            {/* <form onSubmit={friendForm} id="postForm" method="POST">
                 <input
                     id="formInput"
                     placeholder="Pick a friend by his ID"
@@ -117,7 +117,7 @@ const Friends = () => {
                     onChange={updateFriendInput}
                 />
                 <button type="submit">Add</button>
-            </form>
+            </form> */}
             {/* <form onSubmit={deleteFriend}>
                 <input
                     placeholder="select friend"
