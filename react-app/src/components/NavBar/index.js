@@ -50,11 +50,11 @@ const NavBar = () => {
             Friends
           </NavLink>
         </div>
-        {/* <div>
+        <div>
           <NavLink to="/answers" exact={true} className="tags" activeClassName="active">
             Answers
           </NavLink>
-        </div> */}
+        </div>
         <div id="AddContainer">
           <ReactModal
             isOpen={open}

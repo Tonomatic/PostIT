@@ -55,7 +55,7 @@ const LoginForm = () => {
     <div id="login__background">
       {/* <h1>Hello</h1> */}
       <h1 id="headText">
-        Welcome to Post It, the website where you can ask your your friends questions
+        Welcome to Post It, the website where you can ask your friends questions
         about any subject!
         <h3>This is the subtext and more about this project</h3>
       </h1>

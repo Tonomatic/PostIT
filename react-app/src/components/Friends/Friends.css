@@ -19,6 +19,32 @@ td {
   overflow-x: hidden;
 }
 
+#othercontent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#deleteFriend {
+  width: 20px;
+  font-size: 20px;
+  border:none;
+  cursor: pointer;
+  color: red;
+}
+
+#tableWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+#secondRow {
+  display: flex;
+  padding:20px;
+  justify-content: space-between;
+  border: 1px solid black;
+  width: 300px;
+}
 #secondD {
   cursor: pointer;
 }
@@ -44,9 +70,9 @@ td {
   color: white;
   padding: 15px 32px;
   margin-top: 10px;
+  margin-bottom: 10px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
   font-size: 20px;
   cursor: pointer;
 }
