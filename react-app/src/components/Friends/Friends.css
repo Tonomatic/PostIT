@@ -31,3 +31,16 @@ td {
   bottom: 100px;
   background-color: rgb(151, 172, 229);
 }
+
+.findingFriends {
+  background-color: #5B5192; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  margin-top: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  cursor: pointer;
+}

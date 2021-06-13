@@ -75,6 +75,7 @@ const Friends = () => {
                         {friends?.map((friend, id) => (
                             <table id="secondTable">
                                 <tr id="secondRow">
+
                                     <td id="secondD" onClick={true} key={friend.id}>{id}: {friend.username}</td>
                                     <button onClick={() => {
                                         deleteFriend(friend.id);

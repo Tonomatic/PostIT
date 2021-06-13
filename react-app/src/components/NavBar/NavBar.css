@@ -97,7 +97,6 @@ nav > div {
 .mainList {
   display: flex;
   flex-direction: column;
-  align-items:center;
   padding:10px;
   border: 1px solid black;
 }
@@ -105,6 +104,9 @@ nav > div {
 .individualNames {
   padding:10px;
   border-bottom: 1px solid black;
+  display: flex;
+  font-size: 18px;
+  justify-content: space-between;
 }
 
 .buttonFriend {
