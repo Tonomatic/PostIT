@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { myFriends, createFriend, unfriend } from "../store/friend";
+
 
 function UsersList() {
   const [users, setUsers] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
@@ -13,18 +17,42 @@ function UsersList() {
     fetchData();
   }, []);
 
+  const dispatch = useDispatch();
+
+  const Add = async (friendId) => {
+    setIsLoading(true)
+    await dispatch(createFriend(friendId))
+  }
+
+  // <form onSubmit={friendForm} id="postForm" method="POST">
+  //   <input
+  //     id="formInput"
+  //     placeholder="Pick a friend by his ID"
+  //     value={friendId}
+  //     onChange={updateFriendInput}
+  //   />
+  //   <button type="submit">Add</button>
+  // </form>
+
+
   const userComponents = users.map((user) => {
     return (
-      <li key={user.id}>
-        <NavLink to={`/users/${user.id}`}>{user.username}</NavLink>
-      </li>
+      <div key={user.id}>
+        <div className="individualNames">
+          {user.username}
+          <button
+            onClick={() => { Add(user.id) }}
+          >
+            Add
+          </button>
+        </div>
+      </div>
     );
   });
 
   return (
     <>
-      <h1>User List: </h1>
-      <ul>{userComponents}</ul>
+      <ul className="mainList">All Users {userComponents}</ul>
     </>
   );
 }

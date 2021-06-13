@@ -16,3 +16,18 @@ td {
 #secondD {
   cursor: pointer;
 }
+
+.editable2 {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  border: none;
+  flex-direction: column;
+  overflow: scroll;
+  top: 200px;
+  left: 400px;
+  right: 400px;
+  border-radius: 20px;
+  bottom: 100px;
+  background-color: rgb(151, 172, 229);
+}

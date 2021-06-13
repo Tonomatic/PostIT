@@ -39,9 +39,6 @@ const Home = () => {
         await dispatch(createAnswer(chatInput, post))
     }
 
-    const opening = () => {
-        setOpen(true)
-    }
     const close = () => {
         setOpen(false)
     }
@@ -77,7 +74,7 @@ const Home = () => {
         setOpen(true)
         setPost(postId)
         setPostContent(content)
-        return 
+        return
     }
 
     const deletePost = (postId) => {
