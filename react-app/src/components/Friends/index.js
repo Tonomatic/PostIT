@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Redirect, useParams, NavLink } from "react-router-dom";
 import { myFriends, createFriend, unfriend } from "../../store/friend";
 import './Friends.css'
+import ReactModal from 'react-modal'
 
 
 const Friends = () => {
@@ -11,8 +12,17 @@ const Friends = () => {
     const friends = useSelector(state => state.friend.friends)
     const [isLoading, setIsLoading] = useState(false);
     const [friendId, setFriendId] = useState(null)
+    const [open, setOpen] = useState(false);
     const [friendThis, setFriendThis] = useState(null)
     const dispatch = useDispatch();
+
+
+    const opening = () => {
+        setOpen(true)
+    }
+    const close = () => {
+        setOpen(false)
+    }
 
     useEffect(() => {
         dispatch(myFriends())
@@ -41,13 +51,21 @@ const Friends = () => {
         await dispatch(createFriend(friendId))
     }
 
+    const modall = () => {
+        return (<ReactModal
+            isOpen={true}
+            onRequestClose={false}
+        >
+            Hello
+        </ReactModal>)
+    }
     return (
         <div id="myFriendsTop">
             <div id="secondBlock">
                 Friends
             </div>
             <div id="tableWrapper">
-                <table>
+                {/* <table>
                     <tr>
                         <th>My Friends</th>
                     </tr>
@@ -62,7 +80,40 @@ const Friends = () => {
                         )}
                     </tr>
 
-                </table>
+                </table> */}
+                <div>
+                    <div>
+                        {friends?.map((friend, id) => (
+                            <table id="secondTable">
+                                <tr id="secondRow">
+                                    <ReactModal
+                                        isOpen={open}
+                                        onRequestClose={close}
+                                        className="editable"
+                                    >
+                                    </ReactModal>
+                                    <td id="secondD" onClick={true} key={friend.id}>{id}: {friend.username}</td>
+                                </tr>
+                            </table>
+                        )
+                        )}
+                    </div>
+                    <div>
+                        <button
+                            onClick={opening}
+                            className="findingFriends"
+                        >
+                            Find More Friends
+                        </button>
+                        <ReactModal
+                            isOpen={open}
+                            onRequestClose={close}
+                            className="editable"
+                        >
+
+                        </ReactModal>
+                    </div>
+                </div>
             </div>
             {/* <div>
                 {friends?.map((friend) => (

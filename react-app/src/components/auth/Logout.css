@@ -1,5 +1,5 @@
 #logout_button {
-    background-color: #5B5192; /* Green */
+    background-color: #231b55; /* Green */
     border: none;
     color: white;
     padding: 15px 32px;
@@ -7,5 +7,17 @@
     text-decoration: none;
     display: inline-block;
     font-size: 30px;
+    cursor: pointer;
+}
+
+.findingFriends {
+    background-color: #5B5192; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
     cursor: pointer;
 }
