@@ -49,10 +49,11 @@ const Home = () => {
         return temp?.map((post, id) => (
             <div key={post.id} id="ddiiv">
                 <div id="notess">
-                    <button class="circle2" onClick={() => {
+                    {/* <button class="circle2" onClick={() => {
                         deletePost(post.id);
                     }}>X
-                    </button>
+                    </button> */}
+                    <div />
                     <div id="noteContent" key={post.id}>By User {post.userId}: {post.content}</div>
                     <button id="answerButton" onClick={() => {
                         answerModal(post.id, post.content);

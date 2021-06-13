@@ -12,6 +12,26 @@ main {
   border-bottom: none;
 }
 
+.topDog {
+  box-shadow: 0 2px 10px 0;
+}
+
+
+.Home {
+  display: flex;
+  width: 100px;
+  box-shadow: none;
+  justify-content: center;
+  position: fixed;
+  background-size: 100px;
+  background-position-x: center;
+  background-repeat: no-repeat;
+  background-image: url("../../images/post-it.png");
+  left:0;
+  top:0;
+  border:none;
+}
+
 
 .First_nav {
   background-color: #5b5192;

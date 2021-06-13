@@ -13,11 +13,28 @@
   top: 0;
   left: 0;
   /* background-image: url("../../images/discord.jpg"); */
-  background-color: #5b5192;
+  /* background-color: #5b5192; */
   background-size: cover;
+
 
   display: flex;
   align-items: center;
+}
+
+
+
+#headText {
+  width: calc(100% - 480px);
+  display: flex;
+  font-size: 50px;
+  
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 50px;
+  text-align: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  position: fixed;
 }
 
 #login__container {
@@ -28,7 +45,7 @@
   flex-direction: column;
   justify-content: center;
   right:0;
-  background-color: #36393f;
+  background-color: #1d2e50;
   border-radius: 5px;
   box-shadow: 0 2px 10px 0 rgb(0 0 0 / 20%);
   padding: 32px;
