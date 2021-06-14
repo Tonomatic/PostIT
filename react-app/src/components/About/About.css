@@ -75,7 +75,8 @@ footer {
 }
 
 .sm-button:hover {
-  background: linear-gradient(to right, #6500ff, #a400ff);
+  /* background: linear-gradient(to right, #6500ff, #a400ff); */
+  color: black ;
 }
 
 .fab {
@@ -119,13 +120,6 @@ footer {
   cursor: pointer;
 }
 
-.menu-links:hover {
-  color: #6500ff;
-}
-
-.other-links:hover {
-  color: #6500ff;
-}
 
 /* copyright area */
 

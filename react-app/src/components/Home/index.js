@@ -6,7 +6,7 @@ import { myFriends, createFriend } from "../../store/friend";
 import { createAnswer } from "../../store/answer";
 import './Home.css'
 import ReactModal from 'react-modal'
-
+import User from "../User"
 
 const Home = () => {
     const [chatInput, setChatInput] = useState("");
@@ -19,6 +19,7 @@ const Home = () => {
     const friends = useSelector(state => state.friend.friends)
     const dispatch = useDispatch();
     let x;
+    console.log(user)
     useEffect(() => {
         if (user) {
             dispatch(friendsPosts())
@@ -38,7 +39,6 @@ const Home = () => {
         e.preventDefault()
         await dispatch(createAnswer(chatInput, post))
     }
-
     const close = () => {
         setOpen(false)
     }
@@ -53,7 +53,6 @@ const Home = () => {
                         deletePost(post.id);
                     }}>X
                     </button> */}
-                    <div />
                     <div id="noteContent" key={post.id}>By User {post.userId}: {post.content}</div>
                     <button id="answerButton" onClick={() => {
                         answerModal(post.id, post.content);
