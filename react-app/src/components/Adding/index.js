@@ -61,7 +61,7 @@ const Adding = () => {
                         <form onSubmit={postForm} method="POST" id="ddiiv">
                             <textarea
                                 id="note"
-                                placeholder="Questionn"
+                                placeholder="Question"
                                 value={chatInput}
                                 onChange={updateChatInput}
                             />
