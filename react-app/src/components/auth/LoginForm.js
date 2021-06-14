@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Redirect, NavLink } from "react-router-dom";
 import { login } from "../../store/session";
 import './LoginForm.css'
+import { FaGithub, FaLinkedin } from "react-icons/fa"
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -50,15 +51,29 @@ const LoginForm = () => {
   if (user) {
     return <Redirect to="/" />;
   }
-
+  const redirecting = () => {
+    return <Redirect to="/sign-up" />;
+  }
   return (
     <div id="login__background">
       {/* <h1>Hello</h1> */}
-      <h1 id="headText">
-        Welcome to Post It, the website where you can ask your friends questions
-        about any subject!
-        <h3>This is the subtext and more about this project</h3>
-      </h1>
+      <div id="headText">
+        <h1>Welcome to Post It!</h1>
+        <div id="postsits">Add Friends With similar interests to yours!</div>
+        <div id="postsits2">Posts Questions to all your friends!</div>
+        <div id="postsits3">Answer questions from you friends!</div>
+        <div>A place to write and answer questions!</div>
+        {/* <NavLink to="/sign-up">Get Started!</NavLink> */}
+        <div id="creator">
+          Created By Jose Solis
+          <a href="https://github.com/Tonomatic/PostIT" id="logosFront">
+            <FaGithub id="links" />
+          </a>
+          <a href="https://www.linkedin.com/in/jose-solis-17940b71/" id="logosFront">
+            <FaLinkedin id="links" />
+          </a>
+        </div>
+      </div>
       <div id="login__container">
         <h1 id="login__title">Welcome back!</h1>
         <h3 id="login__title--subtitle">Go ask your questions!</h3>

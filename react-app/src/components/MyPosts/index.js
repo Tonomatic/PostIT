@@ -11,6 +11,8 @@ const MyPosts = () => {
     const [chatEdit, setChatEdit] = useState("");
     const [postId, setPostId] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
+    const [open, setOpen] = useState(false);
+
     const user = useSelector(state => state.session.user)
     const posts = useSelector(state => state.post.posts)
     const dispatch = useDispatch();
@@ -23,39 +25,14 @@ const MyPosts = () => {
         e.preventDefault();
         setChatInput(e.target.value)
     };
-    const updatePost = (e) => {
-        e.preventDefault();
-        setPostId(e.target.value)
-    };
-
-    // IS NOT WORKING YET, WILL FIX SOON
-    // const bringBackText = (e) => {
-    //     setPlaceHolder("Question")
+    // const updatePost = (e) => {
+    //     e.preventDefault();
+    //     setPostId(e.target.value)
     // };
-    // const answerModal = (postId, content) => {
-    //     // setOpen(true)
-    //     // setPost(postId)
-    //     // setPostContent(content)
-    //     return (
-    //         <div id="AddContainer">
-    //             <ReactModal
-    //                 isOpen={open}
-    //                 id="editable"
 
-    //             >
-    //                 <textarea>
-    //                     {/* <input
-    //                         value={}
-    //                     /> */}
-    //                 </textarea>
-    //                 <button id="closeModal" onClick={close}>Close Modal</button>
-    //             </ReactModal>
-    //         </div>
-
-    //     )
-    // }
-
-
+    const close = () => {
+        setOpen(false)
+    }
     const deletePost = async (postId) => {
         await dispatch(noMorePost(postId))
         setIsLoading(!isLoading);
@@ -67,6 +44,12 @@ const MyPosts = () => {
         await dispatch(editPost(postId, chatInput))
         // setIsLoading(!isLoading);
         // return
+    }
+
+    const editModal = (postId) => {
+        setOpen(true)
+        setPostId(postId)
+        return
     }
 
     // const postForm = async (e) => {
@@ -84,24 +67,11 @@ const MyPosts = () => {
                 MyPosts
             </div>
             <div id="postsWrapper">
-                {/* <div>
-                    <form onSubmit={postForm} method="POST" id="ddiiv">
-                        <textarea
-                            id="note"
-                            placeholder={placeHolder}
-                            value={chatInput}
-                            onChange={updateChatInput}
-                        />
-                        <div id="containerButtonWrapper">
-                            <button type="submit" id="postingButton" onClick={bringBackText}>Post</button>
-
-                        </div>
-
-                    </form>
-                </div> */}
                 {posts?.map((post) => (
                     <div key={post.id} id="ddiiv">
-                        <div id="note">
+                        <div id="note" onClick={() => {
+                            editModal(post.id,)
+                        }}>
                             <button class="circle" onClick={() => {
                                 deletePost(post.id);
 
@@ -114,23 +84,24 @@ const MyPosts = () => {
                 ))}
             </div>
             <div>
-                <input
-                    placeholder="select post id"
-                    value={postId}
-                    onChange={updatePost}
+                <ReactModal
+                    isOpen={open}
+                    className="editable"
+                    onRequestClose={close}
                 >
-                </input>
-                <form onSubmit={editing} method="POST" id="ddiiv">
-                    <textarea
-                        id="note"
-                        placeholder="Edit Post"
-                        value={chatInput}
-                        onChange={updateChatInput}
-                    />
-                    <div id="containerButtonWrapper">
-                        <button type="submit" id="postingButton">Post</button>
-                    </div>
-                </form>
+                    <form onSubmit={editing} method="POST" id="ddiiv">
+                        <textarea
+                            id="note"
+                            placeholder="Edit Post"
+                            value={chatInput}
+                            onChange={updateChatInput}
+                        />
+                        <div id="containerButtonWrapper">
+                            <button type="submit" id="postingButton">Post</button>
+                        </div>
+                    </form>
+                </ReactModal>
+
             </div>
         </div>
     )
