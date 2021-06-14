@@ -44,9 +44,13 @@
   transition: all 0.5s;
   background-size: 2px;
   width: 300px;
-  height: 300px;
+  height: 250px;
   font-size: 18px;
   font-weight: bold;
+}
+
+#noteContent {
+  text-align: center;
 }
 
 #answerButton {
@@ -58,4 +62,3 @@
   border-radius: 15px;
   background-color: rgb(193, 180, 252);
 }
-
