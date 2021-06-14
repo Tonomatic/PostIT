@@ -69,16 +69,17 @@ const MyPosts = () => {
             <div id="postsWrapper">
                 {posts?.map((post) => (
                     <div key={post.id} id="ddiiv">
-                        <div id="note" onClick={() => {
-                            editModal(post.id,)
-                        }}>
+                        <div id="note">
                             <button class="circle" onClick={() => {
                                 deletePost(post.id);
-
                             }}>X
                             </button>
-                            <div id="noteHeading">Question:</div>
-                            <div id="noteContent" key={post.id}> {post.content}</div>
+                            <div id="noteHeading" onClick={() => {
+                                editModal(post.id)
+                            }}>Question:</div>
+                            <div onClick={() => {
+                                editModal(post.id)
+                            }} id="noteContent" key={post.id}> {post.content}</div>
                         </div>
                     </div>
                 ))}
