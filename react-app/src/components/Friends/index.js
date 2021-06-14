@@ -99,30 +99,6 @@ const Friends = () => {
 
                 </div>
             </div>
-            {/* <div>
-                {friends?.map((friend) => (
-                    <div key={friend.id} id="friends container">
-                        <li key={friend.id}>{friend.username}</li>
-                    </div>
-                ))}
-            </div> */}
-            {/* <form onSubmit={friendForm} id="postForm" method="POST">
-                <input
-                    id="formInput"
-                    placeholder="Pick a friend by his ID"
-                    value={friendId}
-                    onChange={updateFriendInput}
-                />
-                <button type="submit">Add</button>
-            </form> */}
-            {/* <form onSubmit={deleteFriend}>
-                <input
-                    placeholder="select friend"
-                    value={friendThis}
-                    onChange={updateDelete}
-                />
-                <button type="submit">Delete</button>
-            </form> */}
 
         </div>
     )

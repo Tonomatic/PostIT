@@ -53,6 +53,7 @@ main {
   border-bottom: 1px solid black;
 }
 
+
 nav > div {
   border-top: 1px solid white;
   border-bottom: 1px solid white;
@@ -114,9 +115,13 @@ nav > div {
   background-color: red;
 }
 
+.anotherr {
+  margin: 20px;
+}
 .mainList {
   display: flex;
   flex-direction: column;
+  margin-bottom: 20px;
   padding:10px;
   border: 1px solid black;
 }

@@ -50,6 +50,7 @@
   align-items: center;
   font-size: 40px;
   opacity: 0.6;
+  cursor: pointer;
   border-bottom: 2px solid gray;
 }
 
@@ -72,6 +73,9 @@
   font-weight: bold;
 }
 
+#note:hover {
+  transform: scale(1.1);
+}
 
 #postingButton {
   width: 205px;

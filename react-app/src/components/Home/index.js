@@ -110,7 +110,7 @@ const Home = () => {
                                 onChange={updateChat}
                             />
                         </form>
-                        <button id="closeModal" onClick={close}>Close</button>
+                        <button id="closeModal" onClick={close}>Exit</button>
                     </ReactModal>
 
                 </div>

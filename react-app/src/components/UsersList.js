@@ -69,7 +69,7 @@ function UsersList() {
 
   return (
     <>
-      <h2>All Users</h2>
+      <h2 className="anotherr">All Users</h2>
       <ul className="mainList">{userComponents}</ul>
     </>
   );

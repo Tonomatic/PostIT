@@ -61,7 +61,7 @@ const LoginForm = () => {
         <h1>Welcome to Post It!</h1>
         <div id="postsits">Add Friends With similar interests to yours!</div>
         <div id="postsits2">Posts Questions to all your friends!</div>
-        <div id="postsits3">Answer questions from you friends!</div>
+        <div id="postsits3">Answer questions from your friends!</div>
         <div>A place to write and answer questions!</div>
         {/* <NavLink to="/sign-up">Get Started!</NavLink> */}
         <div id="creator">
