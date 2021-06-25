@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { Redirect, NavLink } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import { login } from "../../store/session";
+import { FaGithub, FaLinkedin } from "react-icons/fa"
 
 import './SignUpForm.css'
 
@@ -65,6 +66,23 @@ const SignUpForm = () => {
 
   return (
     <div id="signup__background">
+      <div id="headText">
+        <h1>Welcome to Post It!</h1>
+        <div id="postsits">Add Friends With similar interests to yours!</div>
+        <div id="postsits2">Posts Questions to all your friends!</div>
+        <div id="postsits3">Answer questions from your friends!</div>
+        <div>A place to write and answer questions!</div>
+        {/* <NavLink to="/sign-up">Get Started!</NavLink> */}
+        <div id="creator">
+          Created By Jose Solis
+          <a href="https://github.com/Tonomatic/PostIT" id="logosFront">
+            <FaGithub id="links" />
+          </a>
+          <a href="https://www.linkedin.com/in/jose-solis-17940b71/" id="logosFront">
+            <FaLinkedin id="links" />
+          </a>
+        </div>
+      </div>
       <div id="signup__container">
         <h1 id="signup__title">Create an account</h1>
         <form onSubmit={onSignUp} id="signup__form">
