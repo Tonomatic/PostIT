@@ -42,8 +42,7 @@ const MyPosts = () => {
     const editing = async (e) => {
         e.preventDefault()
         await dispatch(editPost(postId, chatInput))
-        // setIsLoading(!isLoading);
-        // return
+
     }
 
     const editModal = (postId) => {
@@ -51,15 +50,6 @@ const MyPosts = () => {
         setPostId(postId)
         return
     }
-
-    // const postForm = async (e) => {
-    //     e.preventDefault()
-    //     await dispatch(createPost(user.id, chatInput))
-    // }
-
-    // const editQuestion = () => {
-    //     return
-    // }
 
     return (
         <div id="myPostsTop">

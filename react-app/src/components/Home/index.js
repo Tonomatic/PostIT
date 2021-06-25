@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Redirect, useParams, NavLink } from "react-router-dom";
 import { myPosts, friendsPosts, noMorePost } from "../../store/post";
 import { myFriends, createFriend } from "../../store/friend";
 import { createAnswer } from "../../store/answer";
