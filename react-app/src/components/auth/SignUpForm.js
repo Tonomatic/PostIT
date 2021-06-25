@@ -126,7 +126,7 @@ const SignUpForm = () => {
           <button type="submit" id="button1">Sign Up</button>
           <div>
             <button type="submit" id="button2" onClick={demoLogin}>Demo Login</button>
-            <button type="submit" id="button2" onClick={demoLogin2}>Demo2 Login</button>
+            <button type="submit" id="button2" onClick={demoLogin2}>Demo-2 Login</button>
           </div>
           <NavLink to="/login" id="login__link">Already have an account?</NavLink>
         </form>

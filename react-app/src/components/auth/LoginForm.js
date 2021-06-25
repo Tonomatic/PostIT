@@ -104,7 +104,7 @@ const LoginForm = () => {
           <button type="submit" id="button1">Login</button>
           <div id="demos">
             <button type="submit" id="button2" onClick={demoLogin}>Demo Login</button>
-            <button type="submit" id="button2" onClick={demoLogin2}>Demo2 Login</button>
+            <button type="submit" id="button2" onClick={demoLogin2}>Demo-2 Login</button>
           </div>
           <div id="register__link">
             <p>Need an account?</p>
