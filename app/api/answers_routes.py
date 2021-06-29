@@ -17,10 +17,6 @@ def answers():
     answers = Answer.query.filter(Answer.userId == current_user.id).all()
     return {"answers": [answer.to_dict() for answer in answers]}
 
-# @answers_routes.route('/')
-# def postAnswers(id):
-#     answers = Post.answers
-#     return {"answers": [a.to_dict() for a in answers]}
 
 
 
@@ -41,13 +37,3 @@ def makeAnswer(id):
         db.session.commit()
         return answer.to_dict()
     return "this did not work"
-
-
-# May not need this. Query in posts routes prob can do it
-# '''
-# Gets all the answers from a specific post.
-# Can be used to query on the 'Answers' tab
-# '''
-# @answers_routes.route('/<int:id>')
-# def answersToPost(id):
-#     answers = Answer.query.filter(Answer)

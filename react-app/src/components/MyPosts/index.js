@@ -25,10 +25,6 @@ const MyPosts = () => {
         e.preventDefault();
         setChatInput(e.target.value)
     };
-    // const updatePost = (e) => {
-    //     e.preventDefault();
-    //     setPostId(e.target.value)
-    // };
 
     const close = () => {
         setOpen(false)
