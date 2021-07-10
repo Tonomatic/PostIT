@@ -1,6 +1,6 @@
 from app.models import db, Post
 from faker import Faker
-from ..databruh import questions
+from ..data import questions
 import random
 
 faker = Faker()
