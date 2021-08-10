@@ -1,7 +1,7 @@
 from app.models import db, Answer
 from faker import Faker
 import random
-from ..databruh import answers
+from ..data import answers
 
 faker = Faker()
 
