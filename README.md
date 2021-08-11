@@ -44,10 +44,6 @@ User authorization is handled in JavaScript using BCrypt for password hashing. T
 
 <!-- ![sign-in](https://user-images.githubusercontent.com/74742629/114245089-bc97b800-995d-11eb-9903-05bbeb7e4ba3.png) -->
 
-
-#### CsrfAuth
-PostIt uses Csrf Authentication to allow users to sign in. 
-
 #### User 
 <!-- ![user-profile](https://user-images.githubusercontent.com/74742629/114245017-9540eb00-995d-11eb-9f6a-6aabbdf91620.png) -->
 
