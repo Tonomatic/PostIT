@@ -21,26 +21,15 @@
 #### Database Schema
 <!-- ![DatabaseSchema](./planning/db-schema.png) -->
 <!-- #### Back end -->
-The application was built using Javascript with a postgreSQL database and PUG templating. Backend structure is RESTful and all data requests use AJAX and are fullfilled with a mixture of a JSON API and PUG rendering.
+The application was built using Python with a postgreSQL database and React.JS Front-End. Backend structure is RESTful and all data requests are handled through SQLAlchemy and are fullfilled with FLask.
 
 #### Front end 
-The front end is built using PUG templates, CSS, and DOM maninuplation. Vanilla JS was used where possible to minimize page reloading.
-
-<!--  -->
-#### Libraries
-
-Good Reads uses:
-- express
-  - express session
-  - express validator
-<!-- - sequelize -->
-- bcrypt
-- pug
+The front end is built using a React Libray, Redux Store and syled with regular CSS.
 
 ## Primary Components
 <!--  -->
 #### User Authorization
-User authorization is handled in JavaScript using BCrypt for password hashing. These hashed passwords are saved to the database instead of the plain-text passwords. Upon login, the password that a user enters is rehashed and checked against the hashed password in the database to verify credentials.
+User authorization is handled in Python using werkzeug security for password hashing. These hashed passwords are saved to the database instead of the plain-text passwords. Upon login, the password that a user enters is rehashed and checked against the hashed password in the database to verify credentials.
 
 <!-- ![sign-in](https://user-images.githubusercontent.com/74742629/114245089-bc97b800-995d-11eb-9903-05bbeb7e4ba3.png) -->
 
