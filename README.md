@@ -25,32 +25,34 @@ The application was built using Python with a postgreSQL database and React.JS F
 #### Front end 
 The front end is built using a React Libray, Redux Store and syled with regular CSS.
 
-## Primary Components
+# Primary Components
 <!--  -->
-#### User Authorization
+## User Authorization
 User authorization is handled in Python using werkzeug security for password hashing. These hashed passwords are saved to the database instead of the plain-text passwords. Upon login, the password that a user enters is rehashed and checked against the hashed password in the database to verify credentials.
 
 <!-- ![sign-in](https://user-images.githubusercontent.com/74742629/114245089-bc97b800-995d-11eb-9903-05bbeb7e4ba3.png) -->
 
-#### Home Page
-<!-- ![home-page](https://user-images.githubusercontent.com/74742629/114245120-d0dbb500-995d-11eb-8a98-c7880a17342e.png) -->
+## Home Page
+![Home](https://user-images.githubusercontent.com/74742629/130113387-53fa340d-0a7c-4960-9c8f-89e874ecfb29.png)
 
-The homepage Highlights 20 movies, which are laid out in a row of recently added and highest rated.
+### The users homepage is filled with their friends posts, where they can leave an answer, edit an answer, or delete the post from their feed. 
 
-#### User 
-<!-- ![user-profile](https://user-images.githubusercontent.com/74742629/114245017-9540eb00-995d-11eb-9f6a-6aabbdf91620.png) -->
+## User 
+![Friends1](https://user-images.githubusercontent.com/74742629/130114006-2ca87cfe-b1db-4209-9c1a-de1498b8298c.png)
+![Friends2](https://user-images.githubusercontent.com/74742629/130114115-1789431f-8f96-4493-a258-903ac830d9a3.png)
 
-The users homepage is filled with their friends posts, where they can leave an answer, edit an answer, or delete the post from their feed. 
+### A user has a friends page, that allows that user to add/delete friends from their friend's list.
 
-#### Posts
+## Posts
+![Posts](https://user-images.githubusercontent.com/74742629/130114225-8aece4d5-f920-47a8-9328-43122621043f.png)
+![Posts2](https://user-images.githubusercontent.com/74742629/130114278-969f99b2-1ff4-4640-ba5d-bcbe35d7f0f4.png)
 
-
+### A user is able to check on the posts they've made, as well as create a new post from the Navigation bar.
 
 #### Answers
-<!-- ![movies](https://user-images.githubusercontent.com/74742629/114244841-3b402580-995d-11eb-9f68-fdf835644e18.png) -->
+![Answers](https://user-images.githubusercontent.com/74742629/130113902-b153b4cb-a251-4ba6-89c2-193f3b705484.png)
 
-The movies page, allows users to browse through a wide selection of over 900 movies, arranged by sets of 50.
-The search feature allows users to look up certain movies based on keywords and lists them all out.
+## Users are able to post answers on specific question posts. They're also able to check any answers to any posts on the answers tab. 
 
 
 
