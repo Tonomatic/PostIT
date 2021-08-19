@@ -49,10 +49,10 @@ User authorization is handled in Python using werkzeug security for password has
 
 ### A user is able to check on the posts they've made, as well as create a new post from the Navigation bar.
 
-#### Answers
+## Answers
 ![Answers](https://user-images.githubusercontent.com/74742629/130113902-b153b4cb-a251-4ba6-89c2-193f3b705484.png)
 
-## Users are able to post answers on specific question posts. They're also able to check any answers to any posts on the answers tab. 
+### Users are able to post answers on specific question posts. They're also able to check any answers to any posts on the answers tab. 
 
 
 
