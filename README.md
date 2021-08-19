@@ -18,7 +18,7 @@
 ## Overall Structure
 
 #### Database Schema
-<!-- ![DatabaseSchema](./planning/db-schema.png) -->
+![image](https://user-images.githubusercontent.com/74742629/130112693-fc1e9dcb-fdde-4a38-895b-dce7299e0898.png)
 <!-- #### Back end -->
 The application was built using Python with a postgreSQL database and React.JS Front-End. Backend structure is RESTful and all data requests are handled through SQLAlchemy and are fullfilled with FLask.
 
@@ -32,19 +32,21 @@ User authorization is handled in Python using werkzeug security for password has
 
 <!-- ![sign-in](https://user-images.githubusercontent.com/74742629/114245089-bc97b800-995d-11eb-9903-05bbeb7e4ba3.png) -->
 
-#### User 
-<!-- ![user-profile](https://user-images.githubusercontent.com/74742629/114245017-9540eb00-995d-11eb-9f6a-6aabbdf91620.png) -->
-
-The users accounts have a right side full of movie lists, 2 of which are permanent. These lists can be created as well as edited, and are used to store any movies you want. 
-
-
-
 #### Home Page
 <!-- ![home-page](https://user-images.githubusercontent.com/74742629/114245120-d0dbb500-995d-11eb-8a98-c7880a17342e.png) -->
 
 The homepage Highlights 20 movies, which are laid out in a row of recently added and highest rated.
 
-#### Movies
+#### User 
+<!-- ![user-profile](https://user-images.githubusercontent.com/74742629/114245017-9540eb00-995d-11eb-9f6a-6aabbdf91620.png) -->
+
+The users homepage is filled with their friends posts, where they can leave an answer, edit an answer, or delete the post from their feed. 
+
+#### Posts
+
+
+
+#### Answers
 <!-- ![movies](https://user-images.githubusercontent.com/74742629/114244841-3b402580-995d-11eb-9f68-fdf835644e18.png) -->
 
 The movies page, allows users to browse through a wide selection of over 900 movies, arranged by sets of 50.
