@@ -1,7 +1,6 @@
 # PostIt
 
-<!-- ![GoodMovieDetailPage](https://user-images.githubusercontent.com/74742629/114240701-efd64900-9955-11eb-8caa-d01c9d3706be.png) -->
-
+![image](https://user-images.githubusercontent.com/74742629/130109401-dc08c884-f8be-45fb-9618-35bf0ddc9633.png)
 
 ## Summary
 
