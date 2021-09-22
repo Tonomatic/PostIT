@@ -65,6 +65,11 @@ label {
   margin-bottom: 4px;
 }
 
+.errorsContainer {
+  color: white;
+  padding: 10px;
+}
+
 #login__form input {
   width: 382px;
   height: 40px;
@@ -170,6 +175,8 @@ label {
   transform: rotate(-5deg);
   margin: 30px;
   box-shadow: 0 2px 10px 0;
+  cursor: default;
+  transition: transform .15s linear;
 }
 
 
@@ -182,12 +189,16 @@ label {
   font-weight: bold;
   margin: 30px;
   box-shadow: 0 2px 10px 0;
+  cursor: default;
+  transition: transform .15s linear;
 }
 
-#postsits:hover,
-#postsits2:hover,
+#postsits:hover, #postsits:focus,
+#postsits2:hover, #postsits2:focus,
 #postsits3:hover {
   transform: scale(1.1);
+  position:relative;
+  z-index:5;
 }
 #postsits3 {
   background-color: yellow;
@@ -199,6 +210,8 @@ label {
   margin: 30px;
   transform: rotate(5deg);
   box-shadow: 0 2px 10px 0;
+  cursor: default;
+  transition: transform .15s linear;
 }
 
 

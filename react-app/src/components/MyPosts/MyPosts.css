@@ -72,6 +72,7 @@
   font-size: 18px;
   cursor: pointer;
   font-weight: bold;
+  transition: transform .10s linear;
 }
 
 #note:hover {

@@ -78,7 +78,7 @@ const LoginForm = () => {
         <h1 id="login__title">Welcome back!</h1>
         <h3 id="login__title--subtitle">Go ask your questions!</h3>
         <form onSubmit={onLogin} id="login__form">
-          <div>
+          <div className="errorsContainer">
             {errors.map((error) => (
               <div>{error}</div>
             ))}

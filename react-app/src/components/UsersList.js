@@ -9,7 +9,6 @@ function UsersList() {
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
   const friends = useSelector(state => state.friend.friends)
-  console.log(friends)
   useEffect(() => {
     async function fetchData() {
       const response = await fetch("/api/users/");

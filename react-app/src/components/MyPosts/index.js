@@ -19,7 +19,7 @@ const MyPosts = () => {
 
     useEffect(() => {
         dispatch(myPosts(user.id))
-    }, [dispatch, isLoading])
+    }, [dispatch])
 
     const updateChatInput = (e) => {
         e.preventDefault();

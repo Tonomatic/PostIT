@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { myPosts, friendsPosts, noMorePost } from "../../store/post";
-import { myFriends, createFriend } from "../../store/friend";
+import { friendsPosts, noMorePost } from "../../store/post";
+import { myFriends } from "../../store/friend";
 import { createAnswer } from "../../store/answer";
 import './Home.css'
 import ReactModal from 'react-modal'
-import User from "../User"
 
 const Home = () => {
     const [chatInput, setChatInput] = useState("");
@@ -18,7 +17,6 @@ const Home = () => {
     const friends = useSelector(state => state.friend.friends)
     const dispatch = useDispatch();
     let x;
-    console.log(user)
     useEffect(() => {
         if (user) {
             dispatch(friendsPosts())
