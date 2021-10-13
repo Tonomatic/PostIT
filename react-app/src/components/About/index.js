@@ -22,7 +22,7 @@ const About = () => {
                     <a href="https://github.com/Tonomatic/PostIT" class="sm-button">
                         <FaGithub id="linkss" />
                     </a>
-                    <a href="https://www.linkedin.com/in/jose-solis-17940b71/" class="sm-button">
+                    <a href="https://www.linkedin.com/in/jose-solis-garcia-17940b71/" class="sm-button">
                         <FaLinkedin id="linkss" />
                     </a>
                     {/* <a href="https://facebook.com/giriraj.ronak" class="sm-button">
